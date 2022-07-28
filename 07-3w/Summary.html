@@ -1,0 +1,222 @@
+<!--~1.주석-->
+<head> <!--head와 body는 1개씩만 존재-->
+    <meta charset="UTF-8"> <!--한글 깨질 때 확인-->
+    <title>타이틀은 tab에 보인다</title>
+</head>
+<body>
+    <script> //스크립트는 어디서든 몇번이든 존재가능. 헤드에도 가능하다. 관례)닫힌body태그위
+        alert("스크립트로 띄우는 경고창");
+    </script>
+    <h1>h태그는 h1부터 h6까지만 있다.</h1>
+    <a href="url태그">여기에 쓰는 걸로 url 명명.</a>
+    <!--브라우저별로 스크립트 엔진이 다르므로 호환성 생각해야함.
+        크롬 v8, 엣지 차크라, 파이어폭스 스파이더몽키-->
+    <script>
+        console.log("디버깅에 필수")
+    </script>    
+
+    <!--------------------------------------------------------------------------->
+    <!--~2.외부 스타일시트 파일 불러오기-->
+    <link rel="stylesheet" href="파일저장한위치/파일명">
+    
+
+    <!--~3.div태그는 문단단위영역지정/ 화면 전체의 레이아웃을 잡을때 사용-->
+    <!--태그 안에 직접 style을 주는 걸 inline style이라고 부름
+        눈에 피나게 짜증남,  우선순위가 높음-->
+    <!--w3c의 권장은 id는 페이지내에서 유일한 값을 주고
+        class는 여러번 나와도 상관없음-->
+    <div id="wrapper"> 
+        <div id ="header">머릿글</div>
+        <div id ="middle">
+            <div id = "side">메뉴</div>
+            <div id = "content">내용</div>
+        </div>
+        <div id = "footer">바닥글</div>
+    </div>
+    
+
+    <!--~4.내부 스타일시트라고 부름-->
+<style>
+    /* 요게 스타일시트의 주석 */
+    #sleepy{            /* 아이디는 # */
+        border: 5px;
+    }
+    .hyojung{   /* class속성으로 접근시*/
+        color: yellow;
+    }
+</style>    
+    <div id="sleepy">
+        아우 김태훈
+    </div>
+    <div class="hyojung">
+        아우 졸려
+    </div>
+
+
+    <!--~5.클래스사용예시-->
+<style>
+    /* 디자이너들은 보통 필요한 걸 미리 맹글어 두고 사용함*/
+        .fg_white{
+            color: white;
+        }
+        .bg_green{
+        background-color: green;
+    }
+</style>
+    <div class ="bg_green fg_white">박종환</div>
+
+    <!--~6.CSS선택자-->
+<style>
+    *{ /*모든 것 이라는 뜻*/
+        background-color: red;
+    }
+    /* 태그 선택자*/
+    div{    /* div 태그 전부 선택*/
+        color: yellow;
+    }
+    /* id 접근자 */
+    #hj {
+        font-size: 50px;
+    }
+    /* class 접근자 */
+    div.dy{ /* div 태그이면서 class가 dy인 것만, 빈 공백없으면 and로 연산 (ex)<div class="dy">완다</div>*/
+        color: white;
+        background-color: blueviolet;
+    }
+    #merong.aaa{ /* id가 merong이면서 class가 aaa인것 (ex)<div id="merong" class="aaa">손오공</div>*/
+        font-size: 100px;
+    }
+    div,p { /* 여러개 선택은, */
+        background-color: green;
+    }
+    /* 자식 선택자 > */
+</style>
+
+
+<!--~7.레이아웃-->
+<style>
+    /* 레이아웃 잡을 땐 항상 border 속성을 활용한당, 눈에 보여야 생각이 이어짐 */
+    div{
+        display: inline-block; /* div는 default가 block이라 옆에 아무도 못옴 */
+    }
+</style>
+
+<!--~8.기본태그-->
+<hr>    <!--horiaontal  구분선-->
+    <ol>    <!--ordered list 번호매기기-->
+        <li>아파치</li>    <!--list item 리스트작성-->
+    </ol>
+    <ul>    <!--unordered list 번호대신 ●으로 리스트작성됨.-->
+        <li>블랙핑크</li> 
+    </ul>    
+<p>p태그가 문단(paragraph) 엔터키는 <br>사용해야함. 스페이스는&nbsp;사용 </p>
+<pre>내가 쓴 그대로 글자가 보이긴하지만 꾸미기 어려워서 실제로 사용 잘 안함.</pre>
+<!--~9.실제많이쓰는태그-->
+ <!--개발자들이 즐겨쓰는 태그 순수한 용도는 줄 맞추기가 핵심 Needs-->
+    <!--빨간색으로 속성이 나오면 쓰지 않았으면 좋겠다는 표현-->
+    <!--table style="border:2px;border-style: groove;border-color:blue;"-->
+    <table border="2px">
+        <!--tr은 table row, td은 table data, th은 table header-->
+        <!--rowspan은 행을 합치는것 colspan은 열 합치기-->
+        <tr><th>이름</th><th>나이</th><th>1개 추가</th></tr>
+        <tr><td>더미</td><td>가짱</td><td rowspan="3">난 머겡</td></tr>
+        <tr>
+            <td colspan="3"><img src="./images/myjisu2.jpg" width="300" height="300"></td>
+        </tr>
+    </table>
+    <!--그림 넣기-->
+    <!--alt는 alternative(대체글자) 이미지가 지원안되는 브라우저에서 글자로 대체-->
+    <!--Tag 안에 쓴 src, alt같은 값들을 속성(attributes)라고 부름-->
+    <img src="./images/myjisu2.jpg" alt="지수그림2" width="300" height="300"><br>
+    <img src="https://cgeimage.commutil.kr/phpwas/restmb_allidxmake.php?idx=3&simg=20191008153901898TJ30344_1.jpg" width="300" height="300"alt="실제 거의 쓸일이 없음"><br>
+
+
+    <!--~10.자바스크립트-->
+    <script>
+        // 자바와 자바스크립트의 차이 :  정적언어 vs 동적언어
+        // 변수 타입은 크게 기본(primitive)형과 참조(referece-객체)형이 있음
+        // 기본형은 number, string, boolean 이 있고, 참조형은 배열과 json이 있음
+        // .을 찍을 수 없으면 기본형, .을 찍을 수 있으면 참조형
+        "use strict"; // 엄격모드 적용(엄격모드일때 변수선언안하면 오류발생)
+         var v_mascot = "허지현"; // = 오른쪽 값에 따라 왼쪽 변수 데이타타입이 결정
+         var v_mascot1 = 100;
+         var v_mascot2 = true;
+         var v_mascot3 = undefined;
+         var v_mascot4 = null;  // null => 객체 초기화
+
+         // +(문자열더하기랑 숫자더하기 존재), -, *, / 산술연산
+
+         var v_sansu = "123" + 456; // 123456=> 자동으로 456이 "456"으로 형변환됨
+         var v_sansu2 = "456" - "123"; // 333=> 문자열 빼기는 없음, 자동으로 숫자로 형변환됨
+
+         var v_test = "272"; //string
+         var v_test = v_test - 0; // *1 이나 /1해도 number가 나온다.
+         v_test = v_test + ""; //string
+
+        //alert(parseInt("A272만만세")); // NaN -> Not a Number ,숫자로 시작할 경우 뒤에 
+   
+        // 복사 (call by value)
+        /*
+        var v_roze = "로제";
+        var v_jenni = v_roze;
+        v_jenni = "제니";
+        alert(v_roze);
+        alert(v_jenni);
+        */
+
+        // 참조 (call by reference)
+        /* 객체(Object)는 참조방식으로 동작한당
+        // 객체지향언어는 하드웨어 발전속도를 소프트웨어개발속도가 따라잡지 못할 때 나옴
+        var v_arr = ["로제","제니","지수","리사"]; //스크립트 배열
+        var v_arr2 = v_arr;
+        v_arr2[2] = "지현";
+
+        alert(v_arr[2]); //? 지현
+        alert(v_arr2[2]); //? 지현
+        */
+   </script>
+    <!--~11. 조건문반복문-->
+    <script>
+        //문자열은 ""만 false로 형변환되고 나머진 true로 형변환된다
+        //숫자는 0만 false로 형변환되고 나머진 true로 형변환된다
+        //true로 쓰면 4자 !0로 쓰면 2자 2자 절약!
+        //switch문은 firmware(hw 구동프로그램 driver)쪽에서 많이 사용
+        //for문으로 할 수 있는 건 while문으로도 할 수 있고, 역으로도 성립
+        //반복문이 애매한 코드인 경우 꼭 다른 팀원을 위해 주석을 달아준다
+        var v_sum = 0;
+        var v_num = 1;
+        for(var i=0;i<10;i=i+2){
+            alert(i);
+            if(i==2) continue;
+            
+            v_sum += i;
+            v_num ++;
+            alert(v_sum);
+            if(v_num==5){
+            break;
+            }
+        }
+    </script>
+    <!--~12. 함수-->
+    <script>
+        // 자바스크립트에서 가장 중요한 키워드 function
+        // DRY(Do not Repeat Yourself) 개발자는 중복을 싫어한당
+        // 코드에 어떤 패턴이 반복될 때 우린 함수를 사용합니다.
+        // 물론 그렇지 않은 경우도 있어용, 단지 코드를 블락으로 묶어주고 싶은
+        // 경우에도 사용하기 때문에
+        //쉬운데 중요한 문제
+        var v_ret ="";
+        function f_if(p_arg){
+                if(p_arg == "최승훈"){
+                    v_ret="완다";
+                    return;     //함수 종료 (else문 없이 if문 만으로 쓰는 것)
+                }
+                v_ret = "캡틴마블"
+        }
+        f_if("오재경");
+        alert(v_ret);
+        f_if("최승훈");
+        alert(v_ret);
+    </script>
+
+</body>

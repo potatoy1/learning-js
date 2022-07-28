@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/[0728] mylib.js"></script>
+</head>
+<body>
+    <div id="id_disp"></div>
+    <script>
+        // 여러분 괴롭히기 위해 미리 배우는 거 타이머와 랜덤
+        // 스크립트 타이머는 정확하지 않기로 유명(대략 맞음)
+
+        // 만약 1~10까지 숫자를 발생시켜야 한다면
+        // 여기서 갑자기 문제 65 ~100 까지 발생시켜 보세요
+        // 힌트 65 ~ 100은 65 +(0+35)라고 생각할 수 있지요
+        /*
+        for(var i = 0; i <=100; i++) { 
+        //    var v_ranNumber = Math.random(); // 0 < ? < 1
+            var v_ranNumber = Math.ceil(Math.random()*10); // ceil=올림(1~10사이 숫자 나옴)
+            var v_ranNumber = Math.floor(Math.random()*10); // floor=버림(0~10사이 숫자 나옴)
+            var v_ranNumber = Math.floor(Math.random()*36) + 65;
+            id_disp.innerHTML += "<h4>" + f_ranNum(100,200) + "</h4>";
+        }*/
+
+        // setTimeout(함수포인터,시간(밀리초),매개변수1, 매개변수2....)
+        
+        function f_after(p_arg1, p_arg2){
+            alert("나 얼마만에 왔어용? " + p_arg1 + " : " + p_arg2)
+        }
+        
+        // 함수명에 ()를 붙이면 바로 실행됨에 주의!!!, 처음만 낯설어요
+        setTimeout(f_after, 2000,"효정","오늘 기운없어"); // 2초뒤에 f_after를 부름
+        // 앞이 끝나야 뒤가 실해되는 것을 Synchronouse라고 부르고 앞이 실행 중인데 뒤가 실행되는 것은 Asynchronouse라고 부름
+        // 동기 vs 비동기
+       // alert("누가 먼저 실행 되게요?")
+    </script>
+</body>
+</html>
