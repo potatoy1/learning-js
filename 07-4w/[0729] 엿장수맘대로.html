@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .child {
+        font-size: 20px;
+        /* position: static; /* default값 */
+        position: relative; /* static에 의해 자리잡힌 후에 옮기겠다 */
+        position: absolute; /*화면 왼쪽 모서리가 기준점이 되어버림, layer로 뜨게됨. */
+        /*left:100px;
+        top:100px; /*---> position: static으로 지정하고서 수치정하는것은 먹지않음, relative는 가능*/
+        border: 1px solid pink; 
+    }
+    .csh{
+        left: 100px;
+        top: 100px;
+        background-color: aquamarine;
+        z-index: 100;
+    }
+    .lsy {
+        left: 110px;
+        top: 110px;
+        background-color: salmon;
+        z-index: 99999999999999999999999;
+    }
+    .ojk{
+        left: 90px;
+        top: 90px;
+        background-color: dodgerblue;
+        z-index:50;
+    }
+    .ljh{
+        left: 50px;
+    }
+</style>
+</head>
+<body>
+<div id ="container">
+<div class ="child lsy">이승연</div>
+<div class ="child ljh" >이준혁</div>
+<div class ="child csh">최승훈</div>
+<div class ="child ojk">오재경</div>
+</div>
+<input type="button" value="눌러봐" onclick="f_move()">
+<script>
+    var v_ljh = document.querySelectorAll(".child")[1];
+    function f_move(){
+        if(!v_ljh.style.left){ //만약 inline style로 정의되어 있지 않다면
+            v_ljh.style.left = "80px"; // 초기값 스크립트로 세팅
+        }
+        v_ljh.style.left = parseInt(v_ljh.style.left) + 10 + "px";
+        // alert("ppp"+v_ljh.style.left +"ppp");
+    }
+    // console.log(v_ljh);
+</script>
+</body>
+</html>
