@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_parent{
+        position: relative;
+        left: 250px;
+        top: 200px;
+        width: 200px;
+        height: 200px;
+        background-color: crimson;
+        border: 50px groove rgb(184, 247, 255);
+        overflow: hidden; /* hidden-넘치는 걸 잘라라/scroll-스크롤바생성 (overflow-> css속성) */
+    }
+   .child{
+        position: absolute;
+        width: 820px;
+        height: 200px;
+        border: 5px solid purple;
+        /* background-color: rgb(165, 127, 253); 
+        background-image: url(../images/mudo11.jpg);
+        background-size: 200px 200px;*/
+    }
+    img{
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</head>
+<body>
+    <h1>제 특기는 여러분을 헷갈리게 하는 것임</h1>
+    <div id ="id_parent">
+        <div id="id_child1" class="child" >
+            <img src="../images/mudo.jpg" >
+            <img src="../images/mudo2.jpg" >
+            <img src="../images/mudo3.jpg" >
+            <img src="../images/mudo4.jpg" >
+        </div>
+        <div id="id_child2" class="child" >
+            <img src="../images/mudo5.jpg" >
+            <img src="../images/mudo6.jpg" >
+            <img src="../images/mudo7.jpg" >
+            <img src="../images/mudo11.jpg" >
+        </div>
+    </div>
+<script>
+    var v_child1 = document.querySelector("#id_child1");
+    let v_child2 = document.querySelector("#id_child2");
+
+    var v_mvWidth = 10; 
+    function f_move(){
+        v_child1.style.left = parseInt(v_child1.style.left) - v_mvWidth + "px"; //v_mvWidth 10만큼 왼쪽으로 간다.
+        v_child2.style.left = parseInt(v_child2.style.left) - v_mvWidth + "px";
+        
+        //child1사진이 child2끝으로 바로 와서 계속 보여짐
+        if(parseInt(v_child2.style.left)== 0)v_child1.style.left = "820px";
+        if(parseInt(v_child1.style.left)== 0)v_child2.style.left = "820px";
+         
+        setTimeout(f_move, 200);
+    }
+    //페이지 로딩이 끝나면 자동으로 발생하는 이벤트 
+    window.onload = function() {
+        if(!v_child1.style.left){//스크립트로 css초기화하기
+            v_child1.style.left = "0px";
+            v_child2.style.left = "820px";
+        }
+        f_move();
+
+    }
+</script>    
+</body>
+</html>

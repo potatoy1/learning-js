@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>유튜브 넣어요</h1>
+    <input type="button" value="다음영상" onclick="f_next()">
+    선택하시오 <br>
+    ive1<input type="radio" name="nm_ive" value="" onclick="f_sel(0)">
+    ive2<input type="radio" name="nm_ive" value="" onclick="f_sel(1)">
+    ive3<input type="radio" name="nm_ive" value="" onclick="f_sel(2)">
+    ive4<input type="radio" name="nm_ive" value="" onclick="f_sel(3)">
+    <select id="id_sel"onchange="f_sel2()">
+        <option value="-1" selected> 원하는 영상 선택하세요</option>
+        <option value="0">ive1</option>
+        <option value="1">ive2</option>
+        <option value="2">ive3</option>
+        <option value="3">ive4</option>
+    </select>
+<script>
+    function f_sel2() {
+        if(v_select.value == "-1"){
+            alert("선택하세요");
+            return; // 함수종료
+        }
+    //    alert(v_select.value); //multiple이 아닌 경우는 아주 간단
+       v_iframe.src=v_preUrl + v_mvList[v_select.value] + v_postUrl; //v_select.value값이 string이었는데  자동으로 number로 형변환됨.
+    }
+    function f_sel(p_index){
+        v_iframe.src=v_preUrl + v_mvList[p_index] + v_postUrl;
+    }
+    var v_mvList =["DV7WKyPQwUs","d8rpZskNLzw","IY45yPV9XLs","pHWpOK5Q1b8"];
+    var v_preUrl = "https://www.youtube.com/embed/";
+    var v_postUrl = "?autoplay=1&mute=1";
+    var v_index = 0;
+    function f_next() {
+        // iframe의 src 속성에 직접 값을 주기
+        v_iframe.src=v_preUrl + v_mvList[++v_index] + v_postUrl;
+        if(v_index == (v_mvList.length-1)){
+            v_index = -1;
+        }
+    }
+    var v_iframe; // 전역변수로 설정
+    var v_select;
+    // 페이지 로딩 후 초기화가 필요하다면 window.onload에 
+    window.onload = function(){ // 페이지 로딩이 끝나면 자동으로 실행
+         v_iframe = document.querySelector("#geniousDayoung");
+         v_select = document.querySelector("#id_sel");
+    }
+</script>
+    <h2>구글의 정책이 동영샹의 사운드는 사용자에게 불편을 줄 수 있다해서 영상 자동플레이를 하려면 사운드를 꺼야한다. 사운드 켜는 건 사용자 선택!</h2>
+    <iframe id="geniousDayoung" width="800" height="620" src="https://www.youtube.com/embed/7LQyVksiTRs?autoplay=1&mute=1" 
+    title="데이먼스 이어 - yours (acoustic cover)" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+</body>
+</html>

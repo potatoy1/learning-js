@@ -49,11 +49,13 @@ v_stop.onclick = function(){
 //이벤트 등록법 3번, 권장되는 최신버전, 하지만 상황에 따라 골라 씀
 //규모가 커서 한 객체의 이벤트에 개발자마다 하고픈 일이 다를때 사용하면 좋다, 잘 못 쓰면 문제가 잘 안보이는 문제가 있다.
 v_stop.addEventListener("click",function(){
-    alert("addEventListener를 이용한 이벤트")
+    //alert("addEventListener를 이용한 이벤트")
 });
 
 v_stop.addEventListener("click",function(){
-    alert("다영인 전설의 PM(Project Manager)이 될거에요")
+    //alert("다영인 전설의 PM(Project Manager)이 될거에요")
+    clearTimeout(v_timerId);        // 타이머 멈추기 setTimeout과 단짝
+    isStart = false;                // 현재 움직이지 않는 상태를 표시(flag변수)
 });
 
 var isStart = false; //이런 변수를 flag변수, switch변수라고 부름
@@ -106,7 +108,7 @@ function f_move(){
     //막대기와 공 충돌 구현, 좌우 범위안에서 공의 bottom이 막대의 top을 만났을 때 
     if((v_ballBottom >= v_barTop) && chkResult){
         v_ball.style.transform = "skewY(45deg)"; // 괜히 충돌효과
-        v_mvHeight = -v_mvHeight; //Y츅 움직임과 반대로
+        v_mvHeight = -v_mvHeight; //Y축 움직임과 반대로
     }
     //오른쪽 충돌과 왼쪽 충돌은 별개( and가 아닌 or연산)--> 좌우충돌
     if(v_ballRight > window.innerWidth || v_ballLeft < 0){
@@ -118,9 +120,9 @@ function f_move(){
         v_ball.style.transform = "skewY(45deg)";
         v_mvHeight = -v_mvHeight; //부호 반전
     }
-    setTimeout(f_move,50);
+    v_timerId = setTimeout(f_move,50);  // 단짝 clearTimeout(타이머id)
 }
-
+var v_timerId // v_timerId는 지역변수여서 전역변수로 선언 해주어야 사용가능. 
 window.onkeydown = function(){
 
     var v_barLeft = parseInt(v_bar.style.left);

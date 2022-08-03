@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    .wrapper {
+        position: relative; /* static을 만들어진 뒤 이동*/
+        width: 220px;
+        height: 340px;
+        left: 100px;
+        top: 100px;
+        border:1px solid rosybrown;
+    }
+    .panel{
+        position:absolute; /* 부모(relative) 왼쪽 모서리 기준으로 움직이게 됨(가장 많이 쓰이는 케이스)*/
+        border: 1px solid skyblue;
+        /*left: 100px;
+        top: 100px;*/
+    }
+</style>
+<script>
+    //여기서 뜬금없이 오늘의 과제, daumdlsk naver처럼 자동으로 layer가 넘어가도록 합니다. 힌트)setTimeout을 사용하면 순식간.
+    var v_layers;
+    var v_text;
+
+    //window.onload 이벤트 자동 발생 시점은 html태그가 다 해석이 끝나고
+    //페이지 내의 이미지 로딩까지 끝나면 발생, 아주 중요
+    window.onload = function(){
+     
+        // alert("로딩이 끝났습니다.")
+         v_layers = document.querySelectorAll(".panel");
+         v_text = document.querySelector("#id_text");
+        // v_text.value = 1 + "/" + v_layers.length;
+        // f_next();
+    }
+
+    var v_lIndex =0;//초기값    
+    function f_initZindex(p_layers){
+        for(var i = 0; i<p_layers.length; i++){
+            p_layers[i].style.zIndex = 1;
+        }
+    }
+  
+    function f_prev(){
+        // var v_layers = document.querySelectorAll(".panel");
+        // var v_text = document.querySelector("#id_text");
+        f_initZindex(v_layers);
+        v_lIndex--;
+        if(v_lIndex == -1){
+            v_lIndex = v_layers.length-1; //끝으로 보내기
+        }
+        v_text.value = (v_lIndex+1) + "/" + v_layers.length;
+        v_layers[v_lIndex].style.zIndex = 999; 
+    }
+    function f_next(){
+        // var v_layers = document.querySelectorAll(".panel");
+        // var v_text = document.querySelector("#id_text");
+        f_initZindex(v_layers);
+        v_lIndex++;
+        if(v_lIndex == v_layers.length){
+            v_lIndex =0; //처음으로 되돌리기
+        }
+        v_text.value = (v_lIndex+1) + "/" + v_layers.length;
+        v_layers[v_lIndex].style.zIndex = 999; // 가장 앞으로 끌어내오기
+        // 뜬금 없는 질문 마지막 index에서 처음 index로 가게하기
+        // setTimeout(f_next,1000);
+    }
+    // function f_page(){
+    //     return setTimeout(f_page,1000);
+    // }
+    // f_page();
+</script>
+</head>
+<body>
+    <input type="button" value="<" onclick="f_prev()">
+    <input type="text" id="id_text" value="1/3" size="5">
+    <input type="button" value=">" onclick="f_next()">
+    <div class="wrapper">
+        <div class ="panel" style="z-index: 999;">
+            <table border="1">
+                <tr>
+                    <td><a href="http://daum.net"><img src="../07-4w/images/myjisu.jpg" width="100" height="100"></a></td>
+                    <td><img src="../07-4w/images/myjisu2.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../07-4w/images/myjisu3.jpg" width="100" height="100"></td>
+                    <td><img src="../07-4w/images/myjisu4.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../07-4w/images/myjisu5.jpg" width="100" height="100"></td>
+                    <td><img src="../07-4w/images/myjisu6.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+    </div>
+        <div class ="panel" style="z-index: 888;">
+            <table border="1">
+                <tr>
+                    <td><img src="../07-4w/images/mudo.jpg" width="100" height="100"></td>
+                    <td><img src="../07-4w/images/mudo2.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../07-4w/images/mudo3.jpg" width="100" height="100"></td>
+                    <td><img src="../07-4w/images/mudo4.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../07-4w/images/mudo5.jpg" width="100" height="100"></td>
+                    <td><img src="../07-4w/images/mudo6.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div class ="panel"style="z-index: 888;">
+            <div>
+                <table border="1">
+                    <tr>
+                        <td><img src="../07-4w/images/mudo7.jpg" width="100" height="100"></td>
+                        <td><img src="../07-4w/images/mudo8.jpg" width="100" height="100"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="../07-4w/images/mudo9.jpg" width="100" height="100"></td>
+                        <td><img src="../07-4w/images/mudo10.jpg" width="100" height="100"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="../07-4w/images/mudo11.jpg" width="100" height="100"></td>
+                        <td><img src="../07-4w/images/mudo12.jpg" width="100" height="100"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+<script>
+    /* 시퀀스(순서)상 아래 두어 해결
+    var v_layers = document.querySelectorAll(".panel");
+    var v_text = document.querySelector("#id_text");
+    v_text.value = 1 + "/" + v_layers.length;
+    */
+</script>
+</body>
+</html>
