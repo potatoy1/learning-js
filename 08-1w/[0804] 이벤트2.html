@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div style="border:1px solid black" onmouseover="f_over(this)" onmouseout="f_out(this)">
+        <div>?어디로갈까요?</div> <!--여기다가 onmouse하면 벗어나면 서브메뉴 클릭안되므로 위에 border를 만들어서 해주어야함-->
+        <!-- <div style="display: none;border:1px solid pink"> -->
+        <div style="visibility:hidden;border:1px solid pink">
+            <a href="http://naver.com">네이버</a>
+            <a href="http://daum.net">다음</a>
+            <a href="http://www.ddit.or.kr">대덕</a>
+            <a href="http://youtube.com">유튜브</a>
+        </div>
+    </div>
+<script>
+    function f_over(p_this){
+        // p_this.children[1].style.display = "block"; //보이기
+        p_this.children[1].style.visibility = "visible"; //보이기
+    }
+    function f_out(p_this){
+        // p_this.children[1].style.display ="none";   //감추기(자리도 안차지)
+        p_this.children[1].style.visibility = "hidden"; //감추기(자리 차지)
+    }
+</script>
+</body>
+</html>
