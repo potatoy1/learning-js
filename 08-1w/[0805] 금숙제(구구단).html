@@ -17,12 +17,41 @@
         <option value="8">8단</option>
         <option value="9">9단</option>
     </select>
-    <input type="button" value="구구단 전부 출력 숙제" onclick="f_gugugu()">
+    <input type="button" value="구구단 전부 출력 숙제" onclick="f_guguAll()">
     <hr>
     <div id="id_disp"></div>
     <script>
         var v_gugu = document.querySelector("#id_gugu");
         var v_disp = document.querySelector("#id_disp");
+
+        function f_guguAll() {
+            v_disp.innerHTML = ""; //일단 기존 거 지워 줌
+            /* 되도록 innerHTML을 이용한 문자열 더하기는 하지 않는다.
+            v_disp.innerHTML = "<table border=3>";
+            v_disp.innerHTML += "<tr><td>흥</td></tr>";
+            v_disp.innerHTML += "</table>";
+            -> table태그는 자동으로 닫힘태그가 되므로 변수를 써서 사용해야함.(밑에 v_tblStr처럼)
+            */
+
+            var v_tblStr = "<table width =500 border =1>";
+            v_tblStr += "<tr>";
+            for(var i=2; i<=9; i++){
+                v_tblStr += "<th>" + i + "단</th>"
+            }
+            v_tblStr += "</tr>";
+            for(var i = 1; i<=9; i++){
+                v_tblStr += "<tr>";
+                for(var j=2; j<=9; j++){
+                    v_tblStr += "<td>" + j  +"*" + i + "=" + (j*i)+ "</td>";
+                }
+                v_tblStr += "</tr>";
+            }
+            v_tblStr += "</table>";
+             //되도록 태그 생성 문자열 더하기는 변수를 이용해서 
+            //원하는 문자열을 완성한 후 한번에 innerHTML 속성에 넣어준다
+            v_disp.innerHTML = v_tblStr; // 결과 화면 출력
+        }
+
 
         function f_gugu() {
             var v_dan = v_gugu.value; // 선택된 값 가져옴
@@ -42,25 +71,25 @@
             v_tblStr += "</table>";
             v_disp.innerHTML = v_tblStr; // 화면에 출력
         }
-        function f_gugugu() {
-            var v_dan = v_gugu.value; // 선택된 값 가져옴
-            var v_tblStr = "<table border =1>";
-            v_tblStr += "<tr>";
-            for (v_dan = 2; v_dan <= 9; v_dan++) {
-                v_tblStr += "<th>" + v_dan + "단</th>";
-            }
-            v_tblStr += "</tr>";
+        // function f_guguAll() {
+        //     var v_dan = v_gugu.value; // 선택된 값 가져옴
+        //     var v_tblStr = "<table border =1>";
+        //     v_tblStr += "<tr>";
+        //     for (v_dan = 2; v_dan <= 9; v_dan++) {
+        //         v_tblStr += "<th>" + v_dan + "단</th>";
+        //     }
+        //     v_tblStr += "</tr>";
 
-            for (var i = 1; i <= 9; i++) {
-                v_tblStr += "<tr>";
-                for (var j = 2; j <= 9; j++) {
-                    v_tblStr += "<td>" + j + "*" + i + "=" + (j * i) + "</td>";
-                }
-            }
-            v_tblStr += "</tr>";
-            v_tblStr += "</table>";
-            v_disp.innerHTML = v_tblStr;
-        }
+        //     for (var i = 1; i <= 9; i++) {
+        //         v_tblStr += "<tr>";
+        //         for (var j = 2; j <= 9; j++) {
+        //             v_tblStr += "<td>" + j + "*" + i + "=" + (j * i) + "</td>";
+        //         }
+        //     }
+        //     v_tblStr += "</tr>";
+        //     v_tblStr += "</table>";
+        //     v_disp.innerHTML = v_tblStr;
+        // }
     </script>
 </body>
 
