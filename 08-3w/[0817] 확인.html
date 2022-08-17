@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--서버 프로그램 잠깐만 맛봐요-->
+    <form action="[0817] hanbun.php" id = "id_form1" method="get">
+        <input type="text" name="aaa" value="화룡점정">
+        <div name="kgb" value="fbi">메롱</div>
+        <input type="text" name="zzz" value="마스코트">
+        <input type="submit" value="전송">
+    </form>
+    <form action="[0817] hanbun.php" method="post">
+        <input type="text" name="bbb" value="윤민석">
+        <input type="text" name="yyy" value="허지현">
+        <input type="submit" value="전송">
+    </form>
+<script>
+    // alert(document.querySelector("#id_form1").action);
+    // alert(document.querySelector("#id_form1").method); // 소스가 길면 아이디를 줘서 찾아야 가독성에 좋음
+    // // 조금 옛날식 접근법 -> 지금도 사용됨
+    // alert(document.forms[0].elements[1].value); // elements는 사용자입력태그만 받아옴, div태그 중간에 넣어도 영향없음
+    // alert(document.forms[1].elements[1].value);
+    // document.forms[0].aaa.value = "마징가z"
+    // alert(document.forms[0].aaa.value);
+    // alert(document.forms[1].bbb.value);
+
+</script>
+</body>
+</html>

@@ -23,6 +23,7 @@ localStorage.setItem("dongmin",JSON.stringify( {name: "동민", nickName: "태�
 localStorage.apple = "사과";
 
 var v_dongmin = JSON.parse( localStorage.getItem("dongmin"));
+alert(v_dongmin.nickName);
 // 헷갈리면 명확히 object <=> string, localStorage는 문자열만 저장가능
 
 // 사용 포인트(stringify로 문자열 parse로 꺼내서 사용)
