@@ -1,3 +1,6 @@
+// 게시판 테이블명 잠시 전역으로
+var v_tblName = "gesiTB";
+
 // 개발자는 귀차니즘에 반복될 거 같은 예감에 일을 시작합니다(일반화/추상화)
 var request = {}; // name-space용 빈 객체
 // 사용자요청(request)을 담은 객체
@@ -8,7 +11,7 @@ request.getParameter=function (p_name){ // name을 넘기면 value를 리턴해�
     for(var i=0; i<v_nvSSang.length; i++){
         var nv = v_nvSSang[i].split("=");
         if(nv[0] == p_name){
-            return decodeURIComponent(nv[1]);
+            return decodeURIComponent(nv[1]).replaceAll("+"," ");
         }
     }
     return null; // 못찾았다면 null, 꼭 null일 필요는 없음
@@ -23,7 +26,7 @@ request.getParameterValues =function (p_name){ // name을 넘기면 value를 리
     for(var i=0; i<v_nvSSang.length; i++){
         var nv = v_nvSSang[i].split("=");
         if(nv[0] == p_name){
-        v_values.push(nv[1]);
+        v_values.push(decodeURIComponent(nv[1]).replaceAll("+"," "));
         }
     }
     if(!v_values.length) return null; // 배열의 length가 0이면
