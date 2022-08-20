@@ -66,16 +66,8 @@
     var v_writerText = v_form.nm_writer;
     var v_contentText = v_form.nm_content;
     var v_levelSelect = v_form.nm_level;
-    var v_ckBoxs = v_form.nm_cat;
-   
-    v_ckBoxs = document.getElementsByName("nm_cat");
-   arr =[];
-      
-        for(var i = 0; i < v_ckBoxs.length; i++){  
-            if(v_ckBoxs[i].checked){
-            arr.push(v_ckBoxs[i].value);
-        }
-    }
+    // var v_ckBoxs = document.querySelectorAll("#nm_cat")
+    
 
 // alert(v_ckBoxs);
     // 주소표시줄에서 글 넘버 잡아오기
@@ -90,17 +82,33 @@
             break;                      //더 찾을 필요없음
         }
     }
+    
+    // 연봉 올리는 코딩! 
+    var v_ckVals = v_schGul.cats;
+    for(var i = 0; i<v_ckVals.length; i++){
+        document.querySelector("input[value= "+ v_ckVals[i]+"]").checked = true;
+    }
+  
     // 찾았으니 해당 값을 화면에 표시
     v_titleText.value = v_schGul.title;
     v_writerText.value = v_schGul.writer;
     v_contentText.value = v_schGul.content;
     v_levelSelect.value = v_schGul.level; // select의 value의 값을 주면, option의 같은 value값이 자동으로 선택됨
     v_form.nm_gnum.value = v_gnum;
-    v_ckBoxs.value = v_schGul.cats;
-    document.getElementById("nm_cat");
-    console.log( v_schGul.cats);
     
-   
+    /*
+    var v_ckboxs = document.querySelectorAll("input[type=checkbox]");
+    var v_ckVals = v_schGul.cats;
+    for( var i =0; i<v_ckVals.length; i++ ){
+        for(var j =0; j<v_ckboxs.length; j++ ){
+            if(v_ckboxs[j].value == v_ckVals[j]){
+                v_ckboxs[j].checked = true;     // 강제 체크
+                break;  //체크박스 value값을 다 다르게 주었기 때문에 필요
+            }
+        }
+    }
+    */
+   //  v_ckBoxs =  document.querySelector("input[name='nm_cat']:checked");
 
 </script>
 </body>
