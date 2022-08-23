@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_disp{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+    <div id="id_disp">
+    <h3>css관련 속성 설명하기</h3><hr>
+    
+     display : 브라우저에 보이는 방식을 결정하는 속성이다.<br>
+     <li>none은 내용과 공간까지 숨겨져서 보이지 않는다.</li>
+     <li>block은 요소의 옆 공간에 아무것도 올 수 없다.</li>
+     <li>inline은 요소의 옆 공간에 정렬되고 크기는 지정할 수 없다.</li>
+     <li>inline block은 inline처럼 옆으로 정렬되고 크기를 지정할 수 있다.</li><br>
+     
+     position : 위치를 지정하는 방식을 결정하는 속성이다.<br>
+     <li>static은 position속성의 기본값이고 브라우저의 권한이 있다.</li>
+     <li>relative는 상대적 위치를 값을 주어 지정할 수 있다.</li>
+     <li>absoulte는 가장 가까운 상위 요소를 기준으로 위치가 결정된다.</li>
+     <li>fixed는 원래 위치와 관계없이 위치를 지정할 수 있지만 상위 요소에 영향을 받지 않아 화면이 변경되어도 고정되어 있다.</li><br>
+
+     overflow : 내용이 너무 크거나 범위가 넘어가는 요소를 처리할 때 사용하는 속성이다.<br>
+     <li>visible은 overflow의 기본값으로 넘칠 경우 내용이 상자 밖으로 보여진다.</li>
+     <li>hidden은 넘치는 부분을 잘라내므로 넘치는 부분이 보여지지 않게 한다.</li>
+     <li>scroll은 스크롤바를 만들어 내용을 스크롤하며 볼 수있다.</li><br>
+
+     z-index는 우선순위를 주어 겹치는 요소의 위치를 지정할 수 있는 속성이다.<br>
+     숫자가 클 수록 위로 올라오고, 숫자가 작을 수록 아래로 내려간다.<br><br>
+
+     transform은 요소를 회전하거나 기울이는 등의 변환을 주는 속성이다.<br>
+     <li>translate는 x축과 y축의 거리만큼 요소를 이동할 수 있다.</li>
+     <li>rotate는 각도를 지정해주어 요소를 시계방향으로 회전시킨다.</li>
+     <li>skew는 각도를 지정해주어 요소를 비틀거나 기울일 수 있다.</li>
+     <li>transform-origin으로 회전 중심을 설정할 수 있다.</li><br>
+
+     css선택자
+    <li>*는 전체요소를 선택하고 #id명은 id선택자이고 .class명은 class선택자이고 <br>
+    >는 자손을 선택하고, 스페이스는 자손을 포함한 후손을 선택하고 ,는 or이고 붙여서 쓰면 and와 같은 역할을 한다.</li>
+    </div>
+</body>
+</html>

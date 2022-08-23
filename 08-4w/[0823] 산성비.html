@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script src="./[0823] keyword.js"></script>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #wrapper {
+        margin:0 auto;  
+        /* div를 화면 가운데 위치하도록 top/bottom은 0, left/right는 자동 */
+        width:400px;
+        height:500px;
+        border:1px solid black; /* 레이아웃 구성할 땐 항상 보이게 */
+    }
+    #hhh{
+        position: relative;
+        width:100%;    /* 자식은 부모기준으로, 부모의 width와 똑같이 */
+        height:85%;
+        border:1px solid blue;
+    }
+    #ggg{
+        width:99%;
+        height:14%;
+        border:3px solid pink;
+    }
+    input{
+        font-size:2.5em;
+    }
+    .dongmin{
+        position: absolute;
+        display: inline-block;
+        border: 1px solid red;
+    }
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="hhh">
+        </div>
+        <div id="ggg">
+            <input type="text" id="" value=""size="10">
+            <input type="button" id="start" value="start">
+        </div>
+    </div>
+<script>
+    var v_hhh = document.querySelector("#hhh");
+    var v_start = document.querySelector("#start");
+   
+    var v_ran;
+    var v_ranDiv;
+    function f_start(){
+        if(!v_ran){
+            v_ran = Math.floor (Math.random()*v_jsStudy.length);
+            v_ranDiv = document.querySelector("#dayoung"+v_ran);
+        }
+        
+        // console.log(v_div.style.top);
+        v_ranDiv.style.top = parseInt(v_ranDiv.style.top) +10 +"px";
+        setTimeout(f_start,100);
+    }
+    v_start.onclick = f_start;
+
+    function f_init(){
+        for(var i=0; i<v_jsStudy.length; i++){
+            var v_div = document.createElement("div");
+            v_div.innerHTML = v_jsStudy[i];
+            v_div.setAttribute("id", "dayoung" + i);
+            v_div.setAttribute("class","dongmin");
+            v_div.style.width = "30px";
+            v_div.style.height = "5px";
+            v_div.style.top = "-60px"   // 일단 많이 올려서 감추기
+            v_hhh.appendChild(v_div);
+        }
+    }   
+    window.onload= f_init; // 페이지 로딩 후 자동 실행
+</script>    
+</body>
+</html>

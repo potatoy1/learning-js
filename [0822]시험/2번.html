@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h3>랜덤 배열 숫자20개 만들고 최소값 구하기</h3>
+<script>
+    var v_ranNumber = [] ;
+    for(var i = 0; i <=20; i++) { 
+        v_ranNumber.push(Math.ceil(Math.random()*100));
+    }
+    alert("랜덤배열: " + v_ranNumber);
+    
+    function f_min(){
+        var v_minNum = v_ranNumber[0];
+        for(var i = 0; i < v_ranNumber.length; i++) {
+            if(v_minNum > v_ranNumber[i]){
+                v_minNum = v_ranNumber[i];
+            }
+        }
+        return v_minNum;
+    }
+    alert("최솟값: " + f_min(v_ranNumber));
+    // 최소, 최대값 구하는 방식이 중요한 이유는 sort(정렬) 이해의 기본 스텝이므로.
+
+    function f_max(p_ranNumber){
+        var v_maxNum = p_ranNumber[0];
+        for(var i = 0; i < p_ranNumber.length; i++) {
+            if(v_maxNum < p_ranNumber[i]){
+                v_maxNum = p_ranNumber[i];
+            }
+        }
+        return v_maxNum;
+    }
+    alert("최댓값: " + f_max(v_ranNumber));
+</script>
+
+</body>
+</html>

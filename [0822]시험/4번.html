@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_nemo{
+        width: 350px;
+        border: 20px groove rgb(248, 0, 207);
+    }
+    #id_back{
+            display: none;
+            text-align: center;
+            color: yellow;
+            background-color: black;
+            font-size: 25px;
+        }
+</style>    
+</head>
+<body>
+    <div id="id_nemo">
+        <div id="id_back">
+            <br>공지사항<br><br><hr>
+            최고의 프로그래머라면<br><br>
+            에러메시지에 웃음이 난다<br><Br>
+            시행착오가 즐겁다<br><br>
+            로그 출력은 습관이다<br><br>
+            컴터 NULL 사랑해<br><br>
+        </div> 
+    </div>
+<script>
+    var v_nemo = document.querySelector("#id_nemo");
+    var v_back = document.querySelector("#id_back");
+    var v_mvHeight = 10;
+    var v_maxHeight = 450;
+    var v_ms = 50;
+    
+    function f_move(){
+        if(!v_nemo.style.height){ 
+             v_nemo.style.height ="5px"; 
+        }
+        v_nemo.style.height = parseInt(v_nemo.style.height) + v_mvHeight + "px";
+        if(parseInt(v_nemo.style.height)>=v_maxHeight){
+            v_back.style.display="block";
+            return; 
+        }
+        setTimeout(f_move,v_ms);  
+    }
+    window.onload = f_move;
+
+    /*
+    힌트: div태그이용 height속성 늘려가면서 , display 사용
+    */
+
+</script>
+</body>
+</html>
