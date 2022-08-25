@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/gesilib2.js"></script>
+<style>
+    table{
+        border: 3px solid rgb(115, 166, 224); 
+        background-color: rgb(255, 230, 148); 
+        border-radius: 20px;
+    } 
+</style>
+</head>
+<body>
+<h1>자유게시판</h1>
+<form id="id_rform" action="update_action.html" method="get">
+<input type="hidden" name="nm_gnum" value="">
+<table border="1" >
+    <tr>
+        <td>글제목</td>
+        <td><input type="text" name="nm_title" value="" required></td>
+    </tr>
+    <tr>
+        <td>작성자</td>
+        <td><input type="text" name="nm_writer" value="" required></td>
+    </tr>
+    <tr>
+        <td rowspan="2">카테고리</td>
+        <td>
+            &nbsp;ISTJ<input type="radio" name="nm_mbti" value="">
+            INTJ<input type="radio" name="nm_mbti" value="">
+            ISTP<input type="radio" name="nm_mbti" value="">
+            INTP<input type="radio" name="nm_mbti" value="">
+            ISFJ<input type="radio" name="nm_mbti" value="">
+            INFJ<input type="radio" name="nm_mbti" value="">
+            ISFP<input type="radio" name="nm_mbti" value="">
+            INFP<input type="radio" name="nm_mbti" value="">
+        </td>
+     
+    </tr>
+    <tr>
+        <td>
+            ESTJ<input type="radio" name="nm_mbti" value="">
+            ENTJ<input type="radio" name="nm_mbti" value="">
+            ESTP<input type="radio" name="nm_mbti" value="">
+            ENTP<input type="radio" name="nm_mbti" value="">
+            ESFJ<input type="radio" name="nm_mbti" value="">
+            ENFJ<input type="radio" name="nm_mbti" value="">
+            ESFP<input type="radio" name="nm_mbti" value="">
+            ENFP<input type="radio" name="nm_mbti" value="">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            내용<br>
+            <textarea name="nm_content" rows="15" cols="70" required></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"> 
+        <input type="submit" value="글 올리기">
+        <input type="reset" value="다시 작성하기">
+        </td>
+    </tr>
+</table>
+</form>
+<script>
+    var v_form = document.querySelector("#id_rform");
+    var v_titleText = v_form.nm_title;
+    var v_writerText = v_form.nm_writer;
+    var v_contentText = v_form.nm_content;
+    var v_mbti = v_form.nm_mbti;
+    
+
+   
+    var v_gnum = request.getParameter("gnum");
+
+   
+    var v_dataArr = JSON.parse(localStorage.getItem(v_tblName));
+    var v_schGul;  
+    for(var i =0; i<v_dataArr.length; i++){
+        if(v_dataArr[i].pid == v_gnum){ 
+            v_schGul = v_dataArr[i];
+            break;                      
+        }
+    }
+
+    v_titleText.value = v_schGul.title;
+    v_writerText.value = v_schGul.writer;
+    v_contentText.value = v_schGul.content;
+    v_form.nm_gnum.value = v_gnum;
+    v_mbti.value = v_schGul.mbti;
+
+</script>
+</body>
+</html>

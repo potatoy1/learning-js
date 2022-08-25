@@ -3,22 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>따끈따끈 베이커리</title>
-    <link rel="shortcut icon" href="./imeges/saltbread.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">   
+    <link rel="shortcut icon" href="./images/saltbread.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/mainStyle.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div id="wrapper">
         <div id ="header">
-            <img src="./imeges/bread.jpg" width="1000" height="100">
+            <marquee direction=left ><b>🥨따끈따끈 베이커리에 오신 걸 환영합니다🍞</b></marquee>
         </div>
         <div id = "middle">
             <div id="content1">
-                <div id="event"></div>
+                <img class="newmenu" src="./images/newmenu.jpg">
+                <img class="new" src="./images/new1.jpg">
+                <h1 class="newtext">가을맞이<br>신제품!🌰</h1>
+                <div >
+                    <img class="sub" src="./images/new2.jpg" >
+                    <img class="sub" src="./images/new3.jpg" >
+                    <img class="sub" src="./images/new4.jpg" >
+                    <img class="sub" src="./images/new5.jpg" >
+                    </div>
             </div>
             <div id="content2"></div>
-            <div id="content3"></div>
         </div>
         <div id = "footer"></div>
     </div>
+<script>
+var mainImg = document.querySelector(".new");     
+var subImg = document.querySelectorAll(".sub");   
+for(var i = 0 ; i < subImg.length ; i++){
+    // subImg[i].addEventListener("click", changepic);  //이벤트 처리
+    subImg[i].onclick = changepic;
+    console.log(subImg[i]);
+}
+
+function changepic(){   //사진 바꾸는 함수
+    var smallPicAttribute = this.getAttribute("src");
+    mainImg.setAttribute("src", smallPicAttribute); 
+}
+</script>
 </body>
 </html>

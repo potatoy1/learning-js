@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src ="./js/gesilib2.js"></script>
+<script>
+    var v_title = request.getParameter("nm_title");
+    var v_writer = request.getParameter("nm_writer");
+    var v_mbti = request.getParameter("nm_mbti");
+    var v_content = request.getParameter("nm_content");
+
+    var v_arrTotal=[];
+    var v_pid = 1;  
+
+    if(localStorage.getItem(v_tblName)){
+        v_arrTotal = JSON.parse(localStorage.getItem(v_tblName)); 
+        v_pid = v_arrTotal[v_arrTotal.length-1].pid + 1;
+    }
+
+    var v_gul = {}; 
+    v_gul.pid = v_pid  
+    v_gul.title = v_title;
+    v_gul.writer = v_writer;
+    v_gul.mbti = v_mbti;
+    v_gul.content = v_content;
+    v_arrTotal.push(v_gul);
+    
+    localStorage.setItem(v_tblName, JSON.stringify(v_arrTotal));
+    
+    alert("등록이 완료되었습니다. 목록으로 갑니다.")
+    location.replace("gesi_list.html");
+
+</script>

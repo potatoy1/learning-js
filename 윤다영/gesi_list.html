@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script src="./js/gesilib2.js"></script>
+<style>
+    .active {   
+        font-size: 1.5em; 
+        color: red;
+    }
+</style>
+</head>
+<body>
+<h1>볼품없는 게시판 리스트</h1>
+<div id = "id_disp"></div>
+<script>
+    var v_disp = document.querySelector("#id_disp");
+    var v_dataArr = JSON.parse(localStorage.getItem(v_tblName));
+
+    var v_pDsu = 10; 
+    var v_pageNum = request.getParameter("pageNum");
+    if(!v_pageNum){
+        v_pageNum = 1;
+    }
+
+    var v_totalG = v_dataArr.length; 
+    var v_pageGasu = Math.ceil(v_totalG / v_pDsu); 
+
+    var v_sNum = (v_pageNum-1) * v_pDsu; 
+    var v_eNum = v_sNum + (v_pDsu-1);
+
+    if(v_eNum > (v_totalG -1)){
+        v_eNum = v_totalG -1; 
+    }
+    var v_tblStr = "<table border=2 width=600>";
+        v_tblStr += "<tr><th>순번</th><th>제목</th><th>글쓴이</th>";
+        v_tblStr += "<th>카테고리</th></tr>";
+    for(var i =v_sNum; i<= v_eNum; i++) {
+        var v_ggul = v_dataArr[i];
+        console.log("i=",i,"v_ggul=",v_ggul)
+        v_tblStr += "<tr onmouseover = f_over(this) onmouseout =f_out(this)>"; 
+        v_tblStr += "<td>" + (i+1) +"</td>";
+        v_tblStr += "<td><a href=gesi_read.html?gnum="+ v_ggul.pid + ">" + v_ggul.title +"</td>";
+        v_tblStr += "<td>" + v_ggul.writer +"</td>";
+        v_tblStr += "<td>" + v_ggul.mbti +"</td>";
+        v_tblStr += "</tr>";
+    }
+    v_tblStr += "</table><br><br>";
+
+    for(var i=1; i<= v_pageGasu; i++){
+        if(i== v_pageNum){
+            v_tblStr += "<a class=active href = 'gesi_list.html?pageNum="+i+" '>" + i + "</a>&nbsp;&nbsp;&nbsp;&nbsp;";
+        }else{
+            v_tblStr += "<a href = 'gesi_list.html?pageNum="+i+" '>" + i + "</a>&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+    }
+    v_tblStr += "<hr><a href = gesi_write.html>새글쓰기</a>";
+    v_disp.innerHTML = v_tblStr;
+
+       alert(v_checkedVals); 
+
+       for(var i=0; i< v_checkedVals.length; i++){
+            for(var j=0; j<v_dataArr.length; j++){
+                if(v_dataArr[j].pid == v_checkedVals[i]){
+                    v_dataArr.splice(j,1); 
+                    break;
+                }
+            }
+        }
+        console.log(v_dataArr);
+        localStorage.setItem(v_tblName, JSON.stringify(v_dataArr));
+
+        location.replace("list.html?pageNum=" + v_pageNum);
+    
+</script>    
+</body>
+</html>
