@@ -1,4 +1,3 @@
-
 *{
     margin: 0px;
     padding: 0px;
@@ -22,29 +21,67 @@
 #middle{
     height: 53%;
    /* text-align: center;      */
-   background-color: rgb(241, 228, 212);
+   background-color: rgb(247, 240, 218);
 }
-
-#content1, #content2{
-    
+#empty1{
+    width: 10%;
+    height: 90%;
+    background-color: rgb(247, 240, 218);
+}
+#empty2, #emptyNew{
+    width: 3%;
+}
+#buttonL{
+    background-color: rgb(236, 163, 78);
+    height:14%; width:1.1%;
+    border-radius: 5px;
+    transform: translate(-20%, -335%);
+    font-size: 30px;
+    opacity: 0.8;
+}
+#buttonR{
+    background-color: rgb(236, 163, 78);
+    height:14%; width:1.2%;
+    border-radius: 5px;
+    transform: translate(20%, -335%);
+    font-size: 30px;
+    opacity: 0.8;
+}
+#buttonL:hover {
+    background: tomato; 
+    color: white;
+}
+#buttonR:hover {
+    background: steelblue; 
+    color: white;
+}
+#content1, #content2, #empty1,#empty2{
     display: inline-block;
-    
 }
 #content1{
     width: 35%;
     height: 90%;
     text-align: center; 
     border-radius: 10%;
-    background: linear-gradient(to bottom,  rgb(241, 228, 212) ,  rgba(233, 170, 97, 0.671) );
+    background: linear-gradient(to bottom,  rgb(247, 240, 218) ,  rgba(233, 170, 97, 0.671) );
+    vertical-align: top;
 }
 #content2{
-    width: 49%;
-    height: 70%;
+    width: 21%;
+    height: 100%;
+    position: relative;
+    vertical-align: top;
 }
-
+.event{
+    width: 400px;
+    height: 450px;
+}
+.eventMenu{
+    position:absolute;
+}
 #footer{
     height: 30%;
-    background-color: rgb(241, 228, 212);
+    background-color: rgb(247, 240, 218);
 }
 marquee{
     font-size: 80px;
@@ -55,11 +92,11 @@ marquee{
     height: 170px;
     border-radius: 30%;
     position: relative;
-  
 }
 .newtext{
     position: absolute;
-    transform: translate( 130%, -150% );
+    transform: translate( 185%, -185% );
+    
 }
 .new{
     width: 190 px;

@@ -14,11 +14,12 @@
     } 
     *{
         font-family: 'Gaegu', cursive;
+        font-size: 20px;
     }
 </style>
 </head>
 <body>
-<h1>글쓰기</h1>
+<h1>문의하기</h1>
 <hr>
 <form id="id_wform" action="./gesi_write_action.html" method="get">
 <table border="1" >
@@ -31,33 +32,17 @@
             <td><input type="text" name="nm_writer" value="" required></td>
         </tr>
         <tr>
-            <td rowspan="2">MBTI</td>
+            <td>문의유형</td>
             <td>
-                &nbsp;ISTJ<input type="radio" name="nm_mbti" value="">
-                INTJ<input type="radio" name="nm_mbti" value="">
-                ISTP<input type="radio" name="nm_mbti" value="">
-                INTP<input type="radio" name="nm_mbti" value="">
-                ISFJ<input type="radio" name="nm_mbti" value="">
-                INFJ<input type="radio" name="nm_mbti" value="">
-                ISFP<input type="radio" name="nm_mbti" value="">
-                INFP<input type="radio" name="nm_mbti" value="">
-            </td>
-         
-        </tr>
-        <tr>
-            <td>
-                ESTJ<input type="radio" name="nm_mbti" value="">
-                ENTJ<input type="radio" name="nm_mbti" value="">
-                ESTP<input type="radio" name="nm_mbti" value="">
-                ENTP<input type="radio" name="nm_mbti" value="">
-                ESFJ<input type="radio" name="nm_mbti" value="">
-                ENFJ<input type="radio" name="nm_mbti" value="">
-                ESFP<input type="radio" name="nm_mbti" value="">
-                ENFP<input type="radio" name="nm_mbti" value="">
+                <select name="nm_qacat">
+                    <option value="chunjae" selected>제품문의</option>
+                    <option value="sujae">매장문의</option>
+                    <option value="etc">기타문의</option>
+                </select>
             </td>
         </tr>
         <tr>
-            <td colspan="2">내용<br>
+            <td colspan="2">문의내용<br>
                 <textarea name="nm_content" rows="15" cols="70" required></textarea>
             </td>
         </tr>
@@ -71,20 +56,8 @@
 </form>
 <script>
     var v_form = document.querySelector("#id_wform");
-    var v_mbtiValue = document.querySelectorAll("input[name=nm_mbti]");
     v_form.onsubmit = function(){
         event.preventDefault();
-        var v_cnt = 0;
-        for(var i = 0; i < v_mbtiValue.length; i++){ 
-            if(v_mbtiValue[i].checked){
-                v_cnt++;
-            }
-        }
-        if(v_cnt == 0){
-            alert("🖐잠깐!) MBTI를 알려주세요!")
-            v_mbtiValue[0].focus();
-            return; 
-        }
         v_form.submit();
     }
 </script>

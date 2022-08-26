@@ -12,22 +12,39 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id ="header">
-            <marquee direction=left ><b>🥨따끈따끈 베이커리에 오신 걸 환영합니다🍞</b></marquee>
-        </div>
-        <div id = "middle">
-            <div id="content1">
-                <img class="newmenu" src="./images/newmenu.jpg">
-                <img class="new" src="./images/new1.jpg">
-                <h1 class="newtext">가을맞이<br>신제품!🌰</h1>
-                <div >
-                    <img class="sub" src="./images/new2.jpg" >
-                    <img class="sub" src="./images/new3.jpg" >
-                    <img class="sub" src="./images/new4.jpg" >
-                    <img class="sub" src="./images/new5.jpg" >
-                    </div>
+        <a href="main.html" style="color: black">
+            <div id ="header">
+                <marquee direction=left ><b>🥨따끈따끈 베이커리에 오신 걸 환영합니다🍞</b></marquee>
             </div>
-            <div id="content2"></div>
+        </a>
+        <div id = "middle">
+            <div id="empty1"></div>
+                <div id="content1">
+                    <img class="newmenu" src="./images/autumn.jpg">
+                    <img class="new" src="./images/new1.jpg">
+                    <h1 class="newtext">가을맞이<br>신제품!</h1>
+                    <div id="empty"></div>
+                    <div>
+                        <img class="sub" src="./images/new2.jpg">
+                        <img class="sub" src="./images/new3.jpg" >
+                        <img class="sub" src="./images/new4.jpg" >
+                        <img class="sub" src="./images/new5.jpg" >
+                    </div>
+                </div>
+                <div id="empty2"></div>
+                <button id="buttonL" onclick="f_prev()"> < </button>
+                <div id="content2">
+                    <div class="eventMenu" style="z-index: 999;">
+                        <img class="event" src="./images/event1.jpg">
+                    </div>    
+                    <div class="eventMenu" style="z-index: 888;">
+                        <img class ="event" src="./images/event2.jpg">
+                    </div>
+                    <div class="eventMenu" style="z-index: 888;">
+                        <img class="event" src="./images/event3.jpg">
+                    </div>
+                </div>
+                <button id="buttonR" onclick="f_next()">></button>
         </div>
         <div id = "footer"></div>
     </div>
@@ -35,14 +52,44 @@
 var mainImg = document.querySelector(".new");     
 var subImg = document.querySelectorAll(".sub");   
 for(var i = 0 ; i < subImg.length ; i++){
-    // subImg[i].addEventListener("click", changepic);  //이벤트 처리
-    subImg[i].onclick = changepic;
-    console.log(subImg[i]);
+    subImg[i].onclick = changeImg;
+    // console.log(subImg[i]);
 }
 
-function changepic(){   //사진 바꾸는 함수
-    var smallPicAttribute = this.getAttribute("src");
-    mainImg.setAttribute("src", smallPicAttribute); 
+function changeImg(){  
+    var subImgCh = this.getAttribute("src");
+    // console.log(getElementsByClassName("sub").src);
+    mainImg.setAttribute("src", subImgCh); 
+}
+var v_eventImg;
+window.onload = function(){
+    v_eventImg = document.querySelectorAll(".eventMenu");
+     f_next();
+    console.log(v_eventImg);
+ }
+ var v_lIndex =0;   
+ function f_initZindex(p_layers){
+     for(var i = 0; i<p_layers.length; i++){
+         p_layers[i].style.zIndex = 1;
+     }
+ }
+function f_prev(){
+        f_initZindex(v_eventImg);
+        v_lIndex--;
+        if(v_lIndex == -1){
+            v_lIndex = v_eventImg.length-1; 
+        }
+        v_eventImg[v_lIndex].style.zIndex = 999; 
+    }
+
+function f_next(){
+    f_initZindex(v_eventImg);
+    v_lIndex++;
+    if(v_lIndex == v_eventImg.length){
+        v_lIndex =0; 
+    }
+    v_eventImg[v_lIndex].style.zIndex = 999;
+    setTimeout(f_next,1300);
 }
 </script>
 </body>
