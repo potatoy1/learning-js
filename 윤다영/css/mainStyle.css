@@ -18,13 +18,17 @@
     background: url("../images/header2.jpg");
     opacity: 0.5;
 }
+table{
+    font-size: 30px;
+    text-align: center;
+}
 #middle{
     height: 53%;
    /* text-align: center;      */
    background-color: rgb(247, 240, 218);
 }
 #empty1{
-    width: 10%;
+    width: 3%;
     height: 90%;
     background-color: rgb(247, 240, 218);
 }

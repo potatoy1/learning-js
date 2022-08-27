@@ -29,8 +29,8 @@
         <td>문의유형</td>
             <td>
                 <select name="nm_qacat">
-                    <option value="chunjae" selected>제품문의</option>
-                    <option value="sujae">매장문의</option>
+                    <option value="product" selected>제품문의</option>
+                    <option value="branchOffice">매장문의</option>
                     <option value="etc">기타문의</option>
                 </select>
             </td>
@@ -53,7 +53,7 @@
     var v_titleText = v_form.nm_title;
     var v_writerText = v_form.nm_writer;
     var v_contentText = v_form.nm_content;
-    var v_mbti = v_form.nm_mbti;
+    var v_qacat = v_form.nm_qacat;
     
 
    
@@ -73,7 +73,7 @@
     v_writerText.value = v_schGul.writer;
     v_contentText.value = v_schGul.content;
     v_form.nm_gnum.value = v_gnum;
-    v_mbti.value = v_schGul.mbti;
+    v_qacat.value = v_schGul.qacat;
 
 </script>
 </body>

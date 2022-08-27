@@ -1,0 +1,16 @@
+#wrapper {
+    margin: 0 auto;
+    width: 99vw;
+    height: 99vh;
+    /* border: 3px solid rgb(95, 95, 95);  */
+}
+#header {
+    height: 19%;
+    background: url("../images/header2.jpg");
+    opacity: 0.5;
+}
+#middle{
+    height: 82%;
+   /* text-align: center;      */
+   background-color: rgb(247, 240, 218);
+}

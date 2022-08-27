@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="./js/gesilib2.js"></script>
 <style>
     .active {   
         font-size: 1.5em; 
-        color: red;
+        color: saddlebrown;
+    }
+    table{
+        border: 3px solid rgb(115, 166, 224); 
+        background-color: rgb(255, 230, 148); 
+        border-radius: 20px;
+    } 
+    *{
+        font-family: 'Gaegu', cursive;
+        font-size: 20px;
     }
 </style>
 </head>
 <body>
-<h1>문의내역</h1>
+<h1 align="center">문의내역</h1>
 <div id = "id_disp"></div>
 <script>
     var v_disp = document.querySelector("#id_disp");
@@ -39,11 +51,11 @@
     for(var i =v_sNum; i<= v_eNum; i++) {
         var v_ggul = v_dataArr[i];
         console.log("i=",i,"v_ggul=",v_ggul)
-        v_tblStr += "<tr onmouseover = f_over(this) onmouseout =f_out(this)>"; 
+        v_tblStr += "<tr>"; 
         v_tblStr += "<td>" + (i+1) +"</td>";
         v_tblStr += "<td><a href=gesi_read.html?gnum="+ v_ggul.pid + ">" + v_ggul.title +"</td>";
         v_tblStr += "<td>" + v_ggul.writer +"</td>";
-        v_tblStr += "<td>" + v_ggul.mbti +"</td>";
+        v_tblStr += "<td>" + v_ggul.qacat +"</td>";
         v_tblStr += "</tr>";
     }
     v_tblStr += "</table><br><br>";
@@ -58,7 +70,7 @@
     v_tblStr += "<hr><a href = gesi_write.html>새글쓰기</a>";
     v_disp.innerHTML = v_tblStr;
 
-       alert(v_checkedVals); 
+    //    alert(v_checkedVals); 
 
        for(var i=0; i< v_checkedVals.length; i++){
             for(var j=0; j<v_dataArr.length; j++){
