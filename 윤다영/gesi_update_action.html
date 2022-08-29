@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+ <script src="./gesilib.js"></script>
+ <script>
+    var v_gnum = request.getParameter("nm_gnum");
+    var v_title = request.getParameter("nm_title");
+    var v_qacat = request.getParameter("nm_qacat");
+    var v_content = request.getParameter("nm_content");
+
+    var v_dataArr = JSON.parse(localStorage.getItem(v_tblName));
+    var v_schGul;
+    for(var i=0; i<v_dataArr.length; i++){
+        if(v_dataArr[i].pid == v_gnum){
+            v_dataArr[i].title = v_title;
+            v_dataArr[i].v_qacat = v_qacat;
+            v_dataArr[i].content =v_content;
+            break;
+        }
+    }
+    localStorage.setItem(v_tblName, JSON.stringify(v_dataArr));
+    alert("수정완료! 목록으로 돌아갑니다.");
+    location.replace("gesi_list.html");
+ </script>

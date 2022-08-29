@@ -14,3 +14,17 @@
    /* text-align: center;      */
    background-color: rgb(247, 240, 218);
 }
+*{
+    font-family: 'Gaegu', cursive;
+    font-size: 20px;
+}
+table{
+    border: 3px solid rgb(115, 166, 224); 
+    background-color: rgb(255, 230, 148); 
+    border-radius: 20px;
+    margin: auto;
+}
+.active {   
+    font-size: 1.5em; 
+    color: saddlebrown;
+}

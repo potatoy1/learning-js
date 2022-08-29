@@ -2,52 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>따끈따끈 베이커리</title>
+    <link rel="stylesheet" href="./css/writeStyle.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
     <script src="./js/gesilib2.js"></script>
-<style>
-    table{
-        border: 3px solid rgb(115, 166, 224); 
-        background-color: rgb(255, 230, 148); 
-        border-radius: 20px;
-    } 
-</style>
 </head>
 <body>
-<h1>문의사항</h1>
-<form id="id_rform" action="update_action.html" method="get">
-<input type="hidden" name="nm_gnum" value="">
-<table border="1" >
-    <tr>
-        <td>글제목</td>
-        <td><input type="text" name="nm_title" value="" required></td>
-    </tr>
-    <tr>
-        <td>작성자</td>
-        <td><input type="text" name="nm_writer" value="" required></td>
-    </tr>
-    <tr>
-        <td>문의유형</td>
-            <td>
-                <select name="nm_qacat">
-                    <option value="product" selected>제품문의</option>
-                    <option value="branchOffice">매장문의</option>
-                    <option value="etc">기타문의</option>
-                </select>
-            </td>
-    </tr>
-    <tr>
-        <td colspan="2">문의내용<br>
-            <textarea name="nm_content" rows="15" cols="70" required></textarea>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2"> 
-        <input type="submit" value="글 올리기">
-        <input type="reset" value="다시 작성하기">
-        </td>
-    </tr>
-</table>
-</form>
+    <div id="wrapper">
+        <a href="main.html" style="color: black;text-decoration:none; text-align:center;">
+        <div id ="header">
+            <b style="font-size: 55px;text-align:center;">🥨따끈따끈 베이커리🍞</b>
+        </div>
+        </a>
+            <div id ="middle">
+            <h1 align="center">문의사항</h1>
+            <form id="id_rform" action="update_action.html" method="get">
+            <input type="hidden" name="nm_gnum" value="">
+            <table border="1" >
+                <tr>
+                    <td>글제목</td>
+                    <td><input type="text" name="nm_title" value="" required></td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="nm_writer" value="" required></td>
+                </tr>
+                <tr>
+                    <td>문의유형</td>
+                        <td>
+                            <select name="nm_qacat">
+                                <option value="product" selected>제품문의</option>
+                                <option value="branchOffice">매장문의</option>
+                                <option value="etc">기타문의</option>
+                            </select>
+                        </td>
+                </tr>
+                <tr>
+                    <td colspan="2">문의내용<br>
+                        <textarea name="nm_content" rows="15" cols="70" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> 
+                    <input type="submit" value="수정하기">
+                    <input type="reset" value="삭제하기">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </div>
 <script>
     var v_form = document.querySelector("#id_rform");
     var v_titleText = v_form.nm_title;
