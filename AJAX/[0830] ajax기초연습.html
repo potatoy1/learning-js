@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="id_disp"></div>
+<input type="button" value="xml통" onclick="f_xml()">
+<input type="button" value="제이슨통" onclick="f_json()">
+<input type="button" value="테스통" onclick="f_csv()">
+<input type="button" value="아작스호출" onclick="f_ajax()"> 
+<script>
+    var v_disp = document.querySelector("#id_disp");
+    function f_xml() {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get", "[0830] huk.xml",true);
+        v_ajax.onreadystatechange = function() {
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                // alert(v_ajax.responseText); xml은 이렇게 받지않음. 문자열로 다루면 어려움
+                // xml문서나 html문서나 태그로 이루어진 문서인건 매 한가지이다.
+                var v_xmlDoc = v_ajax.responseXML;
+                f_test3(v_xmlDoc);
+            }
+        }
+        v_ajax.send();
+    }
+   
+
+    function f_test3(p_doc){
+         //p_doc를 이용해서 friend를 id_disp에 table형식으로 출력해봅니당
+         var v_friends = p_doc.querySelectorAll("friend");
+         var v_tblStr = "<table border=3>";
+        for(var i =0; i< v_friends.length;i++){
+            var v_children = v_friends[i].children;
+            v_tblStr += "<tr>";
+            v_tblStr += "<td>" + v_children[0].innerHTML+"</td>";
+            v_tblStr += "<td>" + v_children[1].innerHTML+"</td>";
+            v_tblStr += "<td>" + v_children[2].innerHTML+"</td>";
+            v_tblStr += "</tr>";
+        }
+        v_tblStr += "</table>";
+        v_disp.innerHTML = v_tblStr;
+
+     
+
+    }
+
+    function f_json() {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get","[0830] merong.json",true);
+        v_ajax.onreadystatechange=function() {
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                // alert(typeof(v_ajax.responseText));
+                var v_arr = JSON.parse(v_ajax.responseText);
+                f_test2(v_arr);
+                // alert(v_arr[0].alias);
+            }
+        }
+        v_ajax.send();
+    }
+
+    function f_test2(p_arr){
+        //넘어온 값을 id_disp에 table형식으로 출력하시옹
+        var v_tblStr = "<table border=3>";
+        for(var i=0; i<p_arr.length;i++){
+            v_tblStr += "<tr>";
+            v_tblStr += "<td>" + p_arr[i].name+"</td>";
+            v_tblStr += "<td>" + p_arr[i].age+"</td>";
+            v_tblStr += "<td>" + p_arr[i].alias+"</td>";
+            v_tblStr += "</tr>";
+        }
+        v_tblStr += "</table>";
+        v_disp.innerHTML = v_tblStr;
+    }
+
+    var f_csv = function(){
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get","[0830] test.csv",true);
+        v_ajax.onreadystatechange = function() {
+            if (v_ajax.readyState == 4 && v_ajax.status == 200){
+                f_test(v_ajax.responseText);
+            }
+        }
+        v_ajax.send();
+    }
+    function f_test(p_arg){
+        // 벼락문제
+        // 넘어온 값을 id_disp에 table형식으로 출력하시오
+        // 억지힌트
+        var v_lines = p_arg.split("\n"); // split하면 무조건 배열
+        //완성되지 않은 문자열을 innerHTML속성으로 넣는 건 좋지 않음
+        var v_tblStr = "<table border=3>";
+        for(var i =0; i<v_lines.length;i++){
+            var v_tds = v_lines[i].split(",");
+            v_tblStr += "<tr>";
+            v_tblStr += "<td>" + v_tds[0] + "</td>";
+            v_tblStr += "<td>" + v_tds[1] + "</td>";
+            v_tblStr += "<td>" + v_tds[2] + "</td>";
+            v_tblStr += "</tr>"
+        }
+        v_tblStr += "</table>";
+        v_disp.innerHTML = v_tblStr;
+    }
+    
+
+    // var v_myRoze;
+    function f_ajax() {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get", "[0830] dummy.txt", true);
+        v_ajax.onreadystatechange = function() {
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                v_disp.innerHTML += "<h1>" + v_ajax.responseText + "</h1>";
+                v_myRoze = v_ajax.responseText;
+                alert("메롱?")
+            }
+        }
+        v_ajax.send();
+    }
+    // alert(v_myRoze); // 이런실수 많이함 비동기라서 undefined뜸 (위에 함수 실행중일때 떠서)
+</script>
+</body>
+</html>
