@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+    <img src="https://via.placeholder.com/300x230.png?text=y">
+</body>
+<script>
+    var $={};   // 빈 객체
+    $.ajax = function(p_set){
+        var v_ajax = new XMLHttpRequest();
+        if(p_set.type == "get"){
+            v_ajax.open(p_set.type,p_set.url+ "?" + p_set.data,true);
+        }else{
+            v_ajax.open(p_set.type,p_set.url,true);
+        }
+        v_ajax.onreadystatechange = function(){
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                if(p_set.dataType == "json"){
+                    p_set.success(JSON.parse(v_ajax.responseText)) // 결과 처리
+                }else if(p_set.dataType == "text"){
+                    p_set.success(v_ajax.responseText); // 결과 처리
+                }
+            }
+        }
+        if(p_set.type == "get"){
+            v_ajax.send();
+        }else{
+            v_ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            v_ajax.send(data); //post방식 일때는 send()안에 data
+        }
+        v_ajax.send();
+    }
+
+    $.ajax({
+        type:"get",
+        url:"[0830] merong.json",
+        data: "";
+        dataType: "json",
+        success:function(p_rslt){ // 돌려받은 값에 JSON.parse를 적용할지 여부 선택
+            console.log("이해되죠?", p_rslt)
+        }
+    })
+</script>
+ 

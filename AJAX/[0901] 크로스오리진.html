@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="뉴스가져오기" onclick="f_check()">
+<script>
+    // CORS-> Cross Origin Resource Sharing -> 정책이 AJAX에만 적용됨
+    // origin -> 프로토콜 + 도메인 + 포트번호
+    // 다른 도메인에 요청-> 크로스오리진
+    function f_check() {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("GET","https://news.google.com/rss/search?q=블랙핑크&hl=ko&gl=KR&ceid=KR:ko",true);
+        v_ajax.onreadystatechange = function() {
+            if(v_ajax.readyState == 4 && v_ajax.status == 200) {
+                console.log(v_ajax.responseText);
+            }
+        v_ajax.send();
+    }
+}
+</script>    
+</body>
+</html>

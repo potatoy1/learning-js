@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //직접 배열클라스 만들기
+    function MyArray(){
+        // length가 핵심 속성
+        this.length = 0;
+        return this; // 생략 가능하지만 생략하지 않는게 유리!(클래스의 의미인지 나타내기위해!)
+    }
+
+    //메소드 추가 prototype방식으로
+    MyArray.prototype.push = function(p_arg){
+        this[this.length] = p_arg;
+        this.length++; // 직접 length를 컨트롤해야 함
+    }
+
+    MyArray.prototype.min = function(){
+        var v_min = this[0];
+        for(var i=1; i<=this.length; i++){
+            if(v_min > this[i]){
+                v_min = this[i];
+            }
+        }
+        return v_min;
+    }
+
+    MyArray.prototype.max = function(){
+        var v_max = this[0];
+        for(var i=1; i<=this.length; i++){
+            if(v_max < this[i]){
+                v_max = this[i];
+            }
+        }
+        return v_max;
+    }
+
+    MyArray.prototype.forEach = function(p_cb){
+        for(var i=0; i<this.length; i++){
+            //함수.call(this세팅값,매개변수값1,매개변수값2)
+            p_cb.call(this,this[i],i);  //p_cb()이므로 p_cb가 함수임을 알수있음!(콜백함수)
+        }
+    }
+
+    MyArray.prototype.sort = function(p_cb){
+
+    }
+
+    /*****여기서 부터 사용하는거*****/
+    var v_arr = new MyArray();
+    v_arr.push(200);
+    v_arr.push(100);
+    v_arr.push(150);
+    v_arr.forEach(function(p_arg,p_index){
+        //forEach가 항상 for문을 돌려주기 때문에
+        //개별 값 처리만 callback함수에서 처리하면 됨
+        console.log("넘어온 값: " + p_arg, p_index, this);
+        if(p_arg == 100){ //(p_index ==1)로도 가능
+            // alert("100이 넘어왔다")
+            // 여기서 this-> v_arr을 가리킴 완전 중요 미래를 위해서!!!
+            this[p_index] = 3*p_arg; 
+        }
+    })
+    /*
+    alert(v_arr.min()); // 
+    alert(v_arr.max()); // 
+    */
+    console.log(v_arr);
+    
+</script>
