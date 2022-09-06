@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <script>
+    var v_dec;
+    alert(v_dec);
+    function f_argCheck(p_arg){
+        alert(p_arg);
+    }
+    f_argCheck();
+
     //직접 배열클라스 만들기
     function MyArray(){
         // length가 핵심 속성
@@ -42,14 +49,54 @@
     }
 
     MyArray.prototype.sort = function(p_cb){
+        alert(typeof(p_cb));    // 눈으로 확인
+        if(!p_cb){  // 매개변수가 넘어오지 않았다면
+            // 가장 쉬운 정렬 버블 버블정렬, max와 min을 구하는 
+            // 알고리즘만 이해했다면 문제 없음
+            for(var i=0; i<this.length;i++){
+                for(var j=i+1; j<this.length;j++){
+                    if(p_cb(this[i], this[j]) > 0){      // 작다면 서로 자리 교체
+                        var v_temp = this[i];
+                        this[i] = this[j];
+                        this[j] = v_temp;
+                    }
+                }
+            }
+            alert("매개변수로 넘어온 값이 없네요");
+            return this; // 메소드 체이닝을 위한 코드
+        }
 
+        if(typeof(p_cb) == "function"){ // 매개변수의 타입확인
+            // alert("매개변수로 함수가 넘어왔네요 콜백이네!~!~");
+            for(var i=0; i<this.length;i++){
+                for(var j=i+1; j<this.length;j++){
+                    if(p_cb(this[i], this[j]) > 0){      // 작다면 서로 자리 교체
+                        var v_temp = this[i];
+                        this[i] = this[j];
+                        this[j] = v_temp;
+                    }
+                }
+            }
+            // alert("매개변수로 넘어온 값이 없네요");
+            return this; // 메소드 체이닝을 위한 코드
+        }
     }
+    
 
     /*****여기서 부터 사용하는거*****/
+    /*콜백함수 꼭 기억*/
     var v_arr = new MyArray();
+    // v_arr.sort();
+    // v_arr.sort(function(){});
     v_arr.push(200);
     v_arr.push(100);
     v_arr.push(150);
+    v_arr.push(120);
+    console.log("ck:",v_arr.sort(function(a,b){
+        return a-b;
+    }));
+    // console.log("ck:",v_arr.sort());
+    /*
     v_arr.forEach(function(p_arg,p_index){
         //forEach가 항상 for문을 돌려주기 때문에
         //개별 값 처리만 callback함수에서 처리하면 됨
@@ -60,10 +107,11 @@
             this[p_index] = 3*p_arg; 
         }
     })
+    */
     /*
     alert(v_arr.min()); // 
     alert(v_arr.max()); // 
     */
-    console.log(v_arr);
+    // console.log(v_arr);
     
 </script>

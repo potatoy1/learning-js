@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    var v_num = 100000000;  // 큰 숫자, 원시타입(속성과 메소드가 없음)
+    alert(typeof(v_num)); // number
+    alert(v_num.toLocaleString());  // 자동으로 wrapper Class로 바뀜(Number)
+
+    // 자신의 손이 기억하게 하지 않으면 끝내 헷갈림
+    // 연습 부족을 자신의 머리 탓으로 아주 나쁜 전형적인 연쇄살인마의 모습
+    // 연습 없이 되는거 없다.
+    // 복사와 참조 
+    function f_check(p_cb){
+        console.log("확인",p_cb("로제의 닉네임은 로지","제니는 젠득"));
+    }
+
+
+    f_check(function(roze,jenni){  
+        alert("난 콜백이야" + roze + "랑" + jenni);
+        return "금강산 미워";
+    });
+
+    f_check(v_func);
+    //p_cb = function(){alert("난 콜백이야");}
+</script>

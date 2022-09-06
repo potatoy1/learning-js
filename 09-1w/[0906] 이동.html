@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="disp">
+        <img src="../images/mudo1.jpg" width="100" height="100">
+        <img src="../images/mudo2.jpg" width="100" height="100">
+        <img src="../images/mudo3.jpg" width="100" height="100">
+        <img src="../images/mudo4.jpg" width="100" height="100">
+    </div>
+    <input type="button" value="어라 이동하네" onclick="f_move()">
+<script>
+    var v_disp = document.querySelector('#disp');
+    
+    function f_move() {
+        var v_img1 = document.querySelectorAll("img")[0]; // 첫번째 img태그 선택
+        v_disp.appendChild(v_img1);
+    }
+</script>    
+</body>
+</html>
