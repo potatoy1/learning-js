@@ -53,22 +53,24 @@
         }
         if(typeof(p_arg) == "function"){
             for(var i=0;i<this.length;i++){
-               this[i].innerHTML= p_arg(i,this[i].innerHTML);
+                //콜백함수 속의 this를 강제세팅하기 위해 call이나 apply사용
+               this[i].innerHTML= p_arg.call(this[i],i,this[i].innerHTML);
             }
         }
     }
-    
-
 
     // var v_dom1 = new myDom("#disp");
     // jQuery 잘 쓰려면 css 선택자 다시 공부해 오기
     var v_dom2 = $(".aaa"); // new없이 부를 수 있음
     v_dom2.html(function(p_inx,p_html){
         // alert(p_inx +":"+ p_html);
+        console.log("this: ", this); // this가 가리키는 값 눈으로 확인
         if(p_inx == 1){
             return "난 정말 자바스크립트가 너무 안쉬워요~!~"
         }
-        return p_html;  //원래 값 그대로
+
+        // return p_html;  //원래 값 그대로
+        return this.innerHTML + "메렁";
     })
     // console.log(v_dom2.html("최고 프로그래머"));   // 눈으로 확인
 </script>

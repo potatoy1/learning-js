@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script src="./[0907] myQuery.js"></script>
+</head>
+<body>
+    <input type="text" name="안메롱" id="아이디" value="메롱받고 메롱 더">
+    <input type="text" name="안메롱1" id="아이디1" value="메롱받고 메롱 더1">
+    <input type="text" name="안메롱2" id="아이디2" value="메롱받고 메롱 더2">
+    <div id="dv1" class="blackpink">하이룽 로제</div>
+    <div id="dv2" class="blackpink">하이룽 제니</div>
+    <div id="dv3" class="blackpink">하이룽 리사</div>
+    <div id="dv4" class="blackpink">하이룽 민정</div>
+<script>
+    // $(".blackpink").html().attr("id");  // html()에 매개변수 없으면 문자열이 리턴되는데 그 안에는 attr이라는 속성이 없으므로 불가
+    console.log($(".blackpink").html().substring(2)); //문자열이 리턴되서 substring을 사용할 수 있음
+    /*
+    $(".blackpink").attr("class","bangtan").html(function(p_inx,p_str){
+        if(p_inx == 2) return "뷔와 제니";
+        return p_str;   // 원래 문자열
+    })
+    .html(function(){
+        if(p_inx == 0)return p_str + "만만세";
+        return p_str;
+    })
+    .attr("id",function(p_inx,p_attr){
+        if(p_inx == 3) return "merong";
+        return p_attr;
+    });
+    */
+    // alert($("input[name=안메롱1]").attr("type"));
+    // 콜백지옥과 this지옥
+    $("input").attr("type",function(p_index, p_attr){
+        console.log("인덱스 : 속성값",p_index,p_attr); // 자주 눈으로 확인
+        if(p_index == 1){
+            return "checkbox";
+        }
+        return p_attr;  // this[p_attr];
+    });
+
+    $("input").attr("type","radio");
+    $("input").attr("value","방탄소년단");
+
+    // 특별한 for문 => for in
+    var v_samObj = {
+        "mem1":"roze",
+        "mem1":"jenni",
+        "mem1":"lisa",
+        "mem1":"jisu"
+    }
+
+    for(var v_attr in v_samObj){
+        alert(v_attr + v_samObj[v_attr]);
+    }
+
+    $("input").attr({
+        "type":"radio",
+        "value" : "방탄"
+    }).html();
+</script>    
+</body>
+</html>

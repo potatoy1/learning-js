@@ -15,10 +15,10 @@
     }
 
 
-    f_check(function(roze,jenni){  
-        alert("난 콜백이야" + roze + "랑" + jenni);
+    var v_func = function(roze,jenni){  
+        console.log("난 콜백이야" + roze + "랑" + jenni);
         return "금강산 미워";
-    });
+    };
 
     f_check(v_func);
     //p_cb = function(){alert("난 콜백이야");}

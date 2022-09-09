@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--jQuery 설치는 아래 1줄로 끝, 가끔 면접에서 Content Delivery Network (cdn)이 뭐냐고 물어봄-->    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- 아래 방식은 내 서버가 힘들어요, cdn으로 제공된다면 cdn방식을 사용하는 것이 유리
+<script src="../jquery.min.js"></script>
+-->
+<script>
+    $(function(){
+        // alert("여기가 빠른가");
+        /* 나쁜 사용방식, 태그 계속 반복하게 쓰면 배터리 금방 닳아버림!
+        $("div").html("메롱");  //innerHTML
+        $("div").css("color","red");    // style 객체를 다룸 
+        */
+       // 조금 좋은 방식 메소드 체이닝 활용->div태그 한번만 선택해서 작업이 이루어짐.
+       $("div").html("메롱").css("color","red");
+       
+       // 가장 좋은 방식 -> 변수로 받아둠-> div태그를 서치하는것을 반복하지 않고 한번만 함.
+       var $divs = $("div");    //똑똑한 개발자는 jQuery객체임을 표시하기 위해 접두어로 $를 사용.
+       $divs.html("메롱").css("color","red");
+    });
+    window.onload = function(){
+        alert("누가 빠르지");
+    }
+</script>
+</head>
+<body>
+    <div>맨날 div1</div>
+    <div>맨날 div2</div>
+    <div>맨날 div3</div>
+    <div>맨날 div4</div>
+    <video src="../videos/movie1.mp4"></video>
+<script>
+    //오늘은 jQuery 기본 메소드만 정리(꼭 외울것!)
+    /*
+    $(document).ready(function(){
+        alert("문서로딩 끝났어요");
+    });
+    */
+   /* window.onload와 비슷하지만 실제로 DomContentLoaded 이벤트 사용 
+    $(function(){
+        alert("문서로딩 끝났어요2");
+    });
+    */
+   /*
+    window.onload = function(){
+        alert("누가 빨라요?");
+    }
+    */
+</script>    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>on이벤트명=함수  addEventListener(이벤트명, 함수)둘 다 필요해요</h1>
+<input type="button" value="누르쇼" id="btn1"><br>    
+<input type="button" value="누를까말까" id="btn2"><br> 
+<script>
+    var v_btn1 = document.querySelector("#btn1");
+    var v_btn2 = document.querySelector("#btn2");
+
+    v_btn1.addEventListener("click",function(){
+        alert("완전 메론바")
+    });
+
+    v_btn2.addEventListener("click",function(){
+        v_btn1.onclick("click",function(){
+            alert("바밤바 보석바 맛나요");
+        })
+    });
+    /*
+    v_btn1.onclick = function() {
+        alert("완전 메론바");
+    }
+    v_btn1.onclick = function() {
+        alert("바밤바 보석바 맛나요");
+    }
+    */
+   /*
+    v_btn1.addEventListener("click",function(){
+        alert("완전 메론바")
+    });
+    v_btn1.addEventListener("click",function(){
+        alert("바밤바")
+    });
+    */
+</script>   
+</body>
+</html>
