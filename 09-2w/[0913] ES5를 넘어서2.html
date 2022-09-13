@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // Arrow function(화살표 함수)
+    // 화살표함수는 this사용에 몇가지 제약사항이 있는데
+    // 제약사항 외우지말고, this가 원하는대로 동작하지 않으면
+    // 그냥 function 키워드를 사용할 것
+
+    myFunc();
+    /* 정석 함수 선언법
+    function myfunc(){
+        alert("메롱");
+    }
+    */
+
+    // 표현식을 이용한 함수 선언
+    var myFunc = function(){
+        alert("완전 메롱");
+    }
+    
+    
+
+    // spread operator (펼침 연산자)
+    function myFunc(...p_args) {
+        for(let i=0;i<p_args.length;i++) {
+            alert(p_args[i]);
+        }
+    }
+    myFunc("a","b","c","d","e","f","g");
+    myFunc("fbi","kgb","kjw");
+</script>

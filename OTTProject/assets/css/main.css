@@ -1,5 +1,5 @@
-@import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+/* @import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");  */
 
 /*
 	Spectral by HTML5 UP
@@ -2519,7 +2519,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ed4933;
+			background-color: #2549ec;
 			box-shadow: none !important;
 			color: #ffffff !important;
 		}
@@ -2701,6 +2701,13 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+		border-bottom: 8px solid #222;
+	}
+	.spotlight {
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
 	}
 
 		.spotlight .image {
@@ -2714,7 +2721,7 @@ input, select, textarea {
 
 			.spotlight .image img {
 				border-radius: 0;
-				width: 100%;
+				width: 90%;
 			}
 
 		.spotlight .content {
@@ -2735,43 +2742,43 @@ input, select, textarea {
 		}
 
 		.spotlight:nth-child(1) {
-			background-color: rgba(0, 0, 0, 0.075);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(2) {
-			background-color: rgba(0, 0, 0, 0.15);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(3) {
-			background-color: rgba(0, 0, 0, 0.225);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(4) {
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(5) {
-			background-color: rgba(0, 0, 0, 0.375);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(6) {
-			background-color: rgba(0, 0, 0, 0.45);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(7) {
-			background-color: rgba(0, 0, 0, 0.525);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(8) {
-			background-color: rgba(0, 0, 0, 0.6);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(9) {
-			background-color: rgba(0, 0, 0, 0.675);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		.spotlight:nth-child(10) {
-			background-color: rgba(0, 0, 0, 0.75);
+			background-color: rgba(0, 0, 0,0.85);
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3443,7 +3450,7 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
-			vertical-align: middle;
+			/* vertical-align: middle; */
 			width: 7em;
 		}
 
@@ -4029,3 +4036,54 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
+	.animation-card .our-story-card-img-container {
+		box-sizing: border-box;
+		display: flex;
+		flex: 0 1 auto;
+		height: 100%;
+		width: 48%;
+	}
+
+
+.our-story-card {
+    background: transparent;
+    border-bottom: 8px solid #222;
+    color: #fff;
+    margin-bottom: 0;
+    padding: 50px 5%;
+    position: relative;
+	
+}
+
+.boxani {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.boxani1 {
+	position: relative;
+	top: -400px;
+	left: 130px;
+	z-index: 9999999;
+}
+#header button{
+	position: fixed;
+	right: 130px;
+	top: 5px;
+
+ }
+
+ header button:hover{
+	background-color: #00f0ff;
+ }
+
+
+.accordion-container {
+    background-color: #13151d;
+    box-sizing: border-box;
+    margin-top: 16px;
+    text-align: left;
+    width: 100%;
+}
