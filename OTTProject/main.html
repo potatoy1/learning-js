@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Disney Main</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+
+		<style>
+			div{
+				border: 3px solid red;
+			}
+		</style>
+	</head>
+
+	
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html"><img id="logo" src="./images/logo.png"></a></h1>
+						<button type="button">kids</button>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<div class="accordion-box">
+												<ul class="list">
+													<li>
+														<p class="title"><a class="title" href="index.html">Home</a></p>
+													</li>
+													<li>
+														<p class="title"><a href="main.html">인기영상</a></p>
+													</li>
+													<li>
+														<p class="title"><a href="#">장르별 조회</a></p>
+														<div class="con">
+														<a href="elements.html" style="text-decoration:none">로맨스</a><br>
+														<a href="elements.html">스릴러</a><br>
+														<a href="elements.html">미스터리</a><br>
+														<a href="elements.html">액션</a><br>
+														<a href="elements.html">판타지</a><br>
+														<a href="elements.html">공포</a><br>
+														<a href="elements.html">키즈</a><br>
+														<a href="elements.html">애니메이션</a><br>
+													 	</div>
+													</li>
+													<li>
+														<p class="title"><a href="#">마이페이지</a></p>
+														<div class="con"><a href="generic.html" style="text-decoration:none">본인정보</a><br>
+														<a href="generic.html">결제내역</a><br>
+														<a href="generic.html">시청기록</a><br>
+														<a href="generic.html">찜목록</a><br>
+														<a href="generic.html">고객센터</a><br>
+													</div>
+													</li>
+													<li>
+														<p class="title"><a href="#">log out</a></p>
+														<div class="con">Lore type of Lorem Ipsum.</div>
+													</li>
+												
+												</ul>
+											</div>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main-banner">
+						<div id="slideShow">
+							<input type="button" value="&lang;" id="btnLeft" style="z-index: 9;">
+							<input type="button" value="&rang;" id="btnRight" style="z-index: 9;">
+							<div class="slider" id="slider" style="border: 3px solid black;">
+								<img src="../images/gg.png" id="main-img">
+								<img src="../images/문상훈10.jpg" id="main-img">
+								<img src="../images/문상훈11.jpg" id="main-img">
+								<img src="../images/문상훈12.jpg" id="main-img">
+							</div>
+						</div>
+						
+						<section class="wrapper style5">
+							<div class="inner">
+								<div>
+									<div>
+										<h1 style="color: black;">실시간 인기 프로그램</h1>
+									</div>
+									<div class="swiper-content" style="border: 3px solid black;">
+										<input type="button" value="&lang;" id="content-btnLeft" style="z-index: 99;">
+										<input type="button" value="&rang;" id="content-btnRight" style="z-index: 99;">
+										<img src="../images/gg.png" id="content-img">
+										<img src="../images/문상훈10.jpg" id="content-img">
+										<img src="../images/문상훈11.jpg" id="content-img">
+										<img src="../images/문상훈12.jpg" id="content-img">
+									</div>
+
+								</div>
+								<div>오늘의 TOP 20</div>
+								<div>온 가족이 함께 보면 좋을 영화</div>
+								<div>두근두근 Coming Soon</div>
+							
+							</div>
+						</section>
+					</div>
+
+					<script>
+						var $slider = $("#slider");
+						$("#btnRight").on("click", function () {
+							var $childs = $slider.children(); 
+							$slider.append(
+								$childs.eq(0));
+						})
+						$("#btnLeft").on("click", function () {
+							var $childs = $slider.children(); 
+							$slider.prepend(
+								$childs.eq(3));
+						})
+					</script>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="footnote">디지니플러스플러스 책임회사 | 대표자: 이승연 | 서울특별시 강남구 테헤란로 15295638, 747층 (우편번호: 0600236) |
+						Email: helper@disineyplusplus.kr | 연락처: 0800 80122 14016 |<br> 사업자등록번호: 22110-801-033147 | 통신판매업 신고번호:
+						제24021-서울강남-0542456호 |<br>
+						비디오물배급업 신고번호: 제2016-142726호 <br><br>디지니++의 콘텐츠는 서비스 여부에 따라 달라질 수 있습니다.<br>
+						© 2022 Disineyplusplus and its related entities. All Rights Reserved.</p>
+					<ul class="copyright">
+						<li>&copy; Disineyplusplus</li>
+						<li>Design: <a href="http://html5up.net">Disineyplusplus</a></li>
+					</ul>
+				</footer>
+
+			</div>
+
+	</body>
+</html>

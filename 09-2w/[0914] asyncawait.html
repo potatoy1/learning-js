@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+    <div id="disp"></div>
+</body>
+<script>
+    // Promise가 나왔지만, 여전히 비동기처리 단계가 많아지면 어쩔 수 없이
+    // 코드가 복잡해지고 가독성이 떨어지는 문제는 여전히 남아있어 불만이
+    // 잔재하였는데, async, await(정말 굳 아이디어)가 나와서 엄청 칭찬 받음 Promise
+    // 인간의 뇌는 비동기에 익숙하지 않음. 동기방식에 익숙함.
+    // 그래서 동기는 과묵하지 않음!
+    // 조금 시간이 걸리니까, 외면하지 말고 Promise, async,await 써보는 걸로
+
+    const axios = {};  // 네임스페이스용(액시오스라고 읽음)
+    axios.get = function(p_url){
+        return new Promise((res,rej)=>{ 
+            let ajax = new XMLHttpRequest();
+            ajax.open("get",p_url,true);
+            ajax.onreadystatechange = ()=>{
+                if(ajax.readyState == 4 && ajax.status == 200){
+                    //성공했을 때는 res/resolve
+                    res(ajax.responseText);
+                }
+            }
+            ajax.send();
+        });
+    }
+
+    axios.get("../07-4w/mystyle.css").then((p_rslt)=>{console.log("성공:",p_rslt)})
+               .catch((p_error)=>{console.log("실패:",p_error)})
+               .finally(()=>{console.log("난 무조건이야");})
+    // alert("완전 메롱 준혁")
+
+    // async와 await는 세트로
+    async function f_good(){
+        let response = await axios.get("../07-4w/mystyle.css")  //await를 써서 동기방식으로 바꿈 -> 성능이 떨어질 수 있으나 async를 붙였으므로 함수전체는 비동기방식임 
+        document.querySelector("#disp").innerHTML = response;
+    }
+    f_good();
+</script>

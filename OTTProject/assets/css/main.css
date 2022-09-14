@@ -1,12 +1,6 @@
 /* @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");  */
 
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 * {
 	margin: 0;
 	padding: 0;
@@ -2856,8 +2850,9 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
+			background-color: rgba(0, 0, 0,0.85);
 			color: #c8ece9;
+			border-bottom: 8px solid #222;
 		}
 
 			.wrapper.style1 strong, .wrapper.style1 b {
@@ -3019,7 +3014,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #505393;
+			background-color: rgba(0, 0, 0, 0.85);
 			color: #d3d4e4;
 		}
 
@@ -3849,7 +3844,7 @@ input, select, textarea {
 
 		}
 
-/* Main */
+/* Main sy */
 
 	#main > header {
 		padding: 12em 0 10em 0 ;
@@ -3920,6 +3915,68 @@ input, select, textarea {
 	body.is-mobile #main > header {
 		background-attachment: scroll;
 	}
+
+	/* Main */
+#slideShow {
+	border: 5px solid pink;
+	position: relative;
+	width: 100%;
+	height: 500px;
+	margin: 50px auto;
+	overflow: hidden;
+}
+.slider{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+#main-img{
+	/* display: inline-block; */
+	width: 100%;
+	height: 100%;
+}
+
+#btnLeft{
+	position: absolute;
+	top: 50%;
+	left: 10px;
+}
+
+#btnRight{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+}
+
+.swiper-content{
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	/* width: 1500px; */
+	height: 370px;
+	top: 10px;
+}
+
+#content-img{
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+
+}
+
+#content-btnLeft{
+	position: absolute;
+	top: 50%;
+	left: 10px;
+}
+
+#content-btnRight{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+}
 
 /* Footer */
 
@@ -3999,7 +4056,7 @@ input, select, textarea {
 			}
 
 		}
-
+/* 
 /* Landing */
 
 	body.landing #page-wrapper {
@@ -4035,8 +4092,9 @@ input, select, textarea {
 
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
-	}
+	} */
 
+/*guide*/
 	.animation-card .our-story-card-img-container {
 		box-sizing: border-box;
 		display: flex;
@@ -4046,44 +4104,50 @@ input, select, textarea {
 	}
 
 
-.our-story-card {
-    background: transparent;
-    border-bottom: 8px solid #222;
-    color: #fff;
-    margin-bottom: 0;
-    padding: 50px 5%;
-    position: relative;
+	.our-story-card {
+		background: transparent;
+		border-bottom: 8px solid #222;
+		color: #fff;
+		margin-bottom: 0;
+		padding: 50px 5%;
+		position: relative;
+		
+	}
+
+
+	.boxani {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.boxani1 {
+		position: relative;
+		top: -400px;
+		left: 130px;
+		z-index: 9999999;
+	}
 	
-}
+	#header button{
+		position: fixed;
+		right: 130px;
+		top: 5px;
 
-.boxani {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+	}
 
-.boxani1 {
-	position: relative;
-	top: -400px;
-	left: 130px;
-	z-index: 9999999;
-}
-#header button{
-	position: fixed;
-	right: 130px;
-	top: 5px;
-
- }
-
- header button:hover{
-	background-color: #00f0ff;
- }
+	header button:hover{
+		background-color: #00f0ff;
+	}
 
 
-.accordion-container {
-    background-color: #13151d;
-    box-sizing: border-box;
-    margin-top: 16px;
-    text-align: left;
-    width: 100%;
-}
+	.accordion-container {
+		background-color: #13151d;
+		box-sizing: border-box;
+		margin-top: 16px;
+		text-align: left;
+		width: 100%;
+	}
+	.bgp{
+		display: flex;
+		justify-content: space-around;
+	}
