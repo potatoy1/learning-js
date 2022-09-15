@@ -14,6 +14,7 @@ ul {
 	width: 100%;
 	max-width: 600px;
 	margin: 0 auto;
+	position: relative;
 }
 
 p.title {
@@ -22,10 +23,11 @@ p.title {
 	color: #fff;
 	box-sizing: border-box;
 	padding: 0 10px;
+	
 }
 
 .con {
-	padding: 20px;
+	padding: 0px;
 	display: none;
 }
 
@@ -98,7 +100,42 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+.list {
+	position: relative;
+	width: 1500px;
+	height: 500px;
+	right: 400px;
+}
+.qa {
+	text-align: center;
+	font-size: 3rem;
+}
 
+.qna {
+	position: absolute;
+	right: 10px;
+	font-size: 3rem;
+}
+
+.accordion-container button.accordion-btn {
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 12px;
+    text-align: inherit;
+    width: 100%;
+}
+
+.accordion-container button.accordion-btn :after {
+    color: #f9f9f9;
+    content: "+";
+    font-size: 40px;
+    line-height: .8;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 16px);
+}
 /* Basic */
 
 	@-ms-viewport {
@@ -4056,7 +4093,6 @@ input, select, textarea {
 			}
 
 		}
-/* 
 /* Landing */
 
 	body.landing #page-wrapper {
@@ -4147,7 +4183,11 @@ input, select, textarea {
 		text-align: left;
 		width: 100%;
 	}
-	.bgp{
+	.contentimg{
 		display: flex;
 		justify-content: space-around;
+		
+	}
+	.videoimg{
+		z-index: 99999;
 	}
